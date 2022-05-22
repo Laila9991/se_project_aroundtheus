@@ -1,0 +1,29 @@
+.album__image {
+  width: 282px;
+  height: 282px;
+  border-radius: 10px 10px 0 0;
+}
+
+.album__description {
+  background-color: #ffffff;
+  color: black;
+  padding: 25px 15px 25px 21px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 0px 0px 10px 10px;
+  width: 246px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.album__buton-like {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.album__buton-like:hover {
+  opacity: 0.5;
+}
