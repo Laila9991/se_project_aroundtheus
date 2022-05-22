@@ -1,0 +1,129 @@
+.profile {
+  display: flex;
+  max-width: 880px;
+  margin: auto;
+  padding: 40px 0px 51px 0px;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.Profil__content {
+  margin: auto 0;
+}
+
+.Profil__title {
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+
+.Profil__name {
+  margin: 0;
+  display: flex;
+  font-weight: 500;
+  font-size: 42px;
+  line-height: 48px;
+  max-width: 373px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  font-family: "Inter", Arial, sans-serif;
+}
+
+.profile__description {
+  margin: 16px 0 0 0;
+  max-width: 415px;
+  font-weight: 400;
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 18px;
+  line-height: 22px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.profile__edit {
+  margin: 0 0 0 18px;
+  border: 1px solid #ffffff;
+  background: transparent;
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+}
+
+.profile__avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin: 3.75px 26.25px 3.75px 0px;
+}
+.profile__add {
+  min-width: 150px;
+  height: 50px;
+  border: 2px solid #ffffff;
+  background: transparent;
+  border-radius: 2px;
+  cursor: pointer;
+  margin-left: auto;
+  padding: 0;
+}
+
+.profile__edit:hover {
+  opacity: 0.6;
+}
+
+.profile__add:hover {
+  opacity: 0.6;
+}
+
+@media screen and (max-width: 800px) and (min-width: 650px) {
+  .profile {
+    padding: 30px 0px 30px 0px;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .profile {
+    flex-direction: column;
+    justify-content: center;
+  }
+  .Profil__content {
+    margin: 26.25px auto 0px;
+  }
+  .Profil__title {
+    justify-content: center;
+    margin-bottom: 14px;
+  }
+  .Profil__name {
+    min-width: 196px;
+    min-height: 22px;
+    font-size: 22px;
+    line-height: 27px;
+    margin: 0;
+  }
+
+  .profile__description {
+    margin: 0;
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+    min-width: 282px;
+    min-height: 50px;
+    padding-right: 19px;
+    font-family: "Inter", Arial, sans-serif;
+    font-style: normal;
+  }
+  .Profl__editbutton {
+    min-width: 18px;
+    min-height: 18px;
+  }
+
+  .profile__add {
+    margin: 0;
+  }
+  .Prodil__addbutoon {
+    min-width: 282px;
+    max-height: 50px;
+  }
+}

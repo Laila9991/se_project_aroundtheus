@@ -1,0 +1,20 @@
+.album__cards {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 20px;
+  column-gap: 17px;
+  margin: 0 auto;
+  max-width: 880px;
+}
+
+@media screen and (max-width: 800px) and (min-width: 650px) {
+  .album__cards {
+    max-width: 600px;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .album__cards {
+    max-width: 282px;
+  }
+}

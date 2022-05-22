@@ -4,7 +4,132 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Around the US</title>
+    <link rel="stylesheet" href="./pages/index.css" />
   </head>
-  <body></body>
+  <body class="page">
+    <div class="page__content">
+      <header class="header">
+        <img
+          src="images/icon-logo.svg"
+          alt="Practicum Logo"
+          class="header__logo"
+        />
+      </header>
+
+      <main class="main">
+        <section class="profile">
+          <img
+            src="images/jacques-cousteau.jpg"
+            alt="Jacues Cousteau image"
+            class="profile__avatar"
+          />
+          <div class="Profil__content">
+            <div class="Profil__title">
+              <h1 class="Profil__name">Jacques Cousteau</h1>
+              <button type="button" class="profile__edit" aria-label="edit">
+                <img
+                  src="images/edit_button_icon.svg"
+                  alt="edit icon"
+                  class="Profl__editbutton"
+                />
+              </button>
+            </div>
+            <h2 class="profile__description">Explorer</h2>
+          </div>
+          <button type="button" class="profile__add" aria-label="add">
+            <img
+              src="images/add_button_icon.svg"
+              alt="add icon"
+              class="Prodil__addbutoon"
+            />
+          </button>
+        </section>
+        <section class="album">
+          <div class="album__cards">
+            <div class="card">
+              <img
+                src="images/yosemite-valley.jpg"
+                class="card__image"
+                alt="yosemite valley"
+              />
+              <div class="card__description">
+                <h2 class="card__text">Yosemite Valley</h2>
+                <button type="button" aria-label="like" class="like__button">
+                  <img src="./images/icon-heart.svg" alt="like button" />
+                </button>
+              </div>
+            </div>
+            <div class="card">
+              <img
+                src="images/lake-louise.jpg"
+                class="card__image"
+                alt="Lake Louise"
+              />
+              <div class="card__description">
+                <h2 class="card__text">Lake Louise</h2>
+                <button type="button" aria-label="like" class="like__button">
+                  <img src="./images/icon-heart.svg" alt="like button" />
+                </button>
+              </div>
+            </div>
+            <div class="card">
+              <img
+                src="images/bald-mountains.jpg"
+                class="card__image"
+                alt="Bald Mountains"
+              />
+              <div class="card__description">
+                <h2 class="card__text">Bald Mountains</h2>
+                <button type="button" aria-label="like" class="like__button">
+                  <img src="./images/icon-heart.svg" alt="like button" />
+                </button>
+              </div>
+            </div>
+
+            <div class="card">
+              <img src="images/latemar.jpg" class="card__image" alt="Latemar" />
+              <div class="card__description">
+                <h2 class="card__text">Latemar</h2>
+                <button type="button" aria-label="like" class="like__button">
+                  <img src="./images/icon-heart.svg" alt="like button" />
+                </button>
+              </div>
+            </div>
+
+            <div class="card">
+              <img
+                src="images/vanoise-national-park.jpg"
+                class="card__image"
+                alt="Vanoise National"
+              />
+              <div class="card__description">
+                <h2 class="card__text">Vanoise Nationa</h2>
+                <button type="button" aria-label="like" class="like__button">
+                  <img src="./images/icon-heart.svg" alt="like button" />
+                </button>
+              </div>
+            </div>
+
+            <div class="card">
+              <img
+                src="images/lago-di-braies.jpg"
+                class="card__image"
+                alt="Lago di Baries"
+              />
+              <div class="card__description">
+                <h2 class="card__text">Lago di Baries</h2>
+                <button type="button" aria-label="like" class="like__button">
+                  <img src="./images/icon-heart.svg" alt="like button" />
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+      <footer class="footer">
+        <p class="footer__copyright">&#169; 2022 Around The U.S.</p>
+      </footer>
+    </div>
+  </body>
 </html>
