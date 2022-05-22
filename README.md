@@ -1,7 +1,7 @@
 # Project 3: Around The U.S.
   
 **Intro**
-Intro The 3 Project is made with a responsive layout, the site be suitable for all screen sizes and device types. It is created with flexbox and media queries. 
+The 3 Project is made with a responsive layout, the site be suitable for all screen sizes and device types. It is created with flexbox and media queries. 
   
 **Figma**  
   
