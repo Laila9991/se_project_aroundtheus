@@ -1,4 +1,4 @@
-.card {
+.card__content {
   width: 282px;
 }
 .card__image {
@@ -21,12 +21,12 @@
   overflow: hidden;
 }
 
-.like__button {
+.card__buton-like {
   background: transparent;
   border: none;
   cursor: pointer;
 }
 
-.like__button:hover {
+.card__buton-like:hover {
   opacity: 0.5;
 }
