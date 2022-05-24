@@ -9,13 +9,13 @@
 }
 
 @media screen and (max-width: 800px) and (min-width: 650px) {
-  .card__container {
+  .card__list {
     max-width: 600px;
   }
 }
 
 @media screen and (max-width: 650px) {
-  .card__container {
+  .card__list {
     max-width: 282px;
   }
 }

@@ -1,10 +1,10 @@
-.card__image {
+.card__list-image {
   width: 282px;
   height: 282px;
   border-radius: 10px 10px 0 0;
 }
 
-.card__description {
+.card__list-description {
   background-color: #ffffff;
   color: black;
   padding: 25px 15px 25px 21px;
