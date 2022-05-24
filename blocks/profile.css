@@ -52,10 +52,9 @@
   width: 24px;
   height: 24px;
   padding: 0;
-  background-position: center;
+
   background-image: url(../images/edit-icon.svg);
   background-color: transparent;
-  padding: 0;
 }
 
 .profile__avatar {
