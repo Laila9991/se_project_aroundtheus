@@ -1,10 +1,10 @@
-.card__list-image {
+.card__image-natur {
   width: 282px;
   height: 282px;
   border-radius: 10px 10px 0 0;
 }
 
-.card__list-description {
+.card__description {
   background-color: #ffffff;
   color: black;
   padding: 25px 15px 25px 21px;
@@ -18,7 +18,7 @@
   overflow: hidden;
 }
 
-.card__buton-like {
+.card__button-like {
   background: transparent;
   border: none;
   cursor: pointer;
@@ -29,6 +29,6 @@
   background-color: white;
 }
 
-.card__buton-like:hover {
+.card__button-like:hover {
   opacity: 0.5;
 }
