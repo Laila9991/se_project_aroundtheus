@@ -1,6 +1,3 @@
-.card__content {
-  width: 282px;
-}
 .card__image {
   width: 282px;
   height: 282px;
@@ -25,6 +22,11 @@
   background: transparent;
   border: none;
   cursor: pointer;
+  background-image: url(../images/icon-heart.svg);
+  min-width: 21px;
+  min-height: 18px;
+  background-repeat: no-repeat;
+  background-color: white;
 }
 
 .card__buton-like:hover {
