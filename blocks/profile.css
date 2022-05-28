@@ -90,7 +90,6 @@
   .profile {
     flex-direction: column;
     justify-content: center;
-    padding-bottom: 36px;
   }
   .profile__info-description {
     margin: 26.25px auto 0px;
@@ -104,6 +103,7 @@
     height: 120px;
     border-radius: 50%;
     margin-right: 30px;
+    margin: 0;
   }
   .profile__name {
     min-width: 196px;
@@ -129,9 +129,9 @@
   }
 
   .profile__add-button {
-    min-width: 282px;
+    width: 282px;
+    margin: 0 auto;
     margin-top: 36px;
-    margin-left: 0;
   }
   .profile__add-image {
     min-width: 282px;
