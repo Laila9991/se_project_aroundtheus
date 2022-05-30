@@ -9,7 +9,7 @@
   padding: 0px;
 }
 
-@media screen and (max-width: 800px) and (min-width: 650px) {
+@media screen and (max-width: 900px) and (min-width: 650px) {
   .cards__list {
     max-width: 600px;
   }
