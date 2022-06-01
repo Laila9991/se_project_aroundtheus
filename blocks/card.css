@@ -13,13 +13,9 @@
   justify-content: space-between;
   align-items: center;
   border-radius: 0px 0px 10px 10px;
-  max-width: 246px;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-
-  font-size: 24px;
-  line-height: 29px;
 }
 .card__text {
   font-weight: 900;
@@ -29,7 +25,7 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-  max-width: 282px;
+  max-width: 220px;
 }
 
 .card__button-like {
