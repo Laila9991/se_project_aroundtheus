@@ -7,14 +7,6 @@
   box-sizing: border-box;
 }
 
-@media screen and (max-width: 780px) {
-  .profile {
-    padding-bottom: 36px;
-    flex-direction: column;
-    justify-content: center;
-  }
-}
-
 .profile__info-container {
   gap: 18px;
   margin: 0;
@@ -89,12 +81,17 @@
 }
 
 @media screen and (max-width: 780px) {
+  .profile {
+    padding-bottom: 36px;
+    flex-direction: column;
+    justify-content: center;
+  }
+
   .profile__info-description {
     margin: 26.25px auto 0px;
   }
   .profile__info-container {
     justify-content: center;
-
     gap: 10px;
   }
   .profile__avatar {
