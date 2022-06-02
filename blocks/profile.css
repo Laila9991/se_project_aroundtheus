@@ -2,7 +2,8 @@
   display: flex;
   max-width: 880px;
   margin: auto;
-  padding: 40px 19px 51px 19px;
+  padding: 40px 0px 51px 0px;
+  width: calc(100% - 38px);
   align-items: center;
   box-sizing: border-box;
 }
@@ -110,8 +111,8 @@
     min-width: 282px;
   }
   .profile__button-edit {
-    min-width: 18px;
-    min-height: 18px;
+    width: 18px;
+    height: 18px;
   }
 
   .profile__add-button {
