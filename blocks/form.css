@@ -1,0 +1,30 @@
+.form {
+  display: flex;
+  width: 358px;
+  margin: 0 auto;
+  flex-direction: column;
+  padding-bottom: 36px;
+}
+
+.form__input {
+  font-family: "Inter", Arial, sans-serif;
+  height: 40.52px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+
+  width: 100%;
+  border: none;
+  padding: 0;
+  margin: 0;
+  border-bottom: 1px solid rgba(84, 84, 84, 0.2);
+}
+
+.form__input::placeholder {
+  color: #333;
+}
+
+.form__input:nth-of-type(1) {
+  margin-top: 14px;
+}
