@@ -41,6 +41,7 @@ const cardTemplate = document
   .content.querySelector(".card__content");
 
 //header
+
 const headerName = document.querySelector(".profile__name");
 const headerDescription = document.querySelector(".profile__description");
 
@@ -50,6 +51,7 @@ const editBtn = document.querySelector(".profile__button-edit");
 //modal
 const modal = document.querySelector(".modal");
 const closeBtn = document.querySelector(".modal__close");
+const cardsList = document.querySelector(".cards__list");
 
 //form
 const form = document.querySelector(".form");
@@ -63,14 +65,14 @@ const inputDescription = document.querySelector("#list-description");
 /*
  ** Function
  */
-function ButtonClose() {
-  modal.classList.remove("modal_is-open");
+function closePopup() {
+  modal.classList.remove("popup_opened");
 }
-function ButtonOpen() {
-  inputName.value = inputName.textContent;
-  inputDescription.value = inputDescription.textContent;
+function openPopup() {
+  inputName.value = headerName.textContent;
+  inputDescription.value = headerDescription.textContent;
 
-  modal.classList.add("modal_is-open");
+  modal.classList.add("popup_opened");
 }
 
 function submitform(event) {
@@ -78,29 +80,30 @@ function submitform(event) {
   headerName.textContent = inputName.value;
   headerDescription.textContent = inputDescription.value;
 
-  ButtonClose();
+  closePopup();
 }
 
 //future function
 function getCardElement(data) {
   const cardelement = cardTemplate.cloneNode(true);
   const cardImage = cardelement.querySelector(".card__image");
-  const CardTitle = cardelement.querySelector(".card__name");
+  const cardTitle = cardelement.querySelector(".card__text");
 
-  cardImage.src = data.link;
+  cardImage.src = data.linke;
   cardImage.alt = data.name;
 
-  CardTitle.textContent = data.name;
+  cardTitle.textContent = data.name;
 
   return cardelement;
 }
 
 for (let i = 0; i < initialCards.length; i++) {
-  let card = getCardElement(initialCards[i]);
+  let cards = getCardElement(initialCards[i]);
+  cardsList.appendChild(cards);
 }
 /*
  ** Event Listeners
  */
-form.addEventListener("submit", submitform, false);
-editBtn.addEventListener("click", ButtonOpen, false);
-closeBtn.addEventListener("click", ButtonClose, false);
+form.addEventListener("submit", submitform);
+editBtn.addEventListener("click", openPopup);
+closeBtn.addEventListener("click", closePopup);
