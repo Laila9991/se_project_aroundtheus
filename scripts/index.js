@@ -69,10 +69,10 @@ function closePopup() {
   modal.classList.remove("popup_opened");
 }
 function openPopup() {
+  modal.classList.add("popup_opened");
+
   inputName.value = headerName.textContent;
   inputDescription.value = headerDescription.textContent;
-
-  modal.classList.add("popup_opened");
 }
 
 function submitform(event) {
@@ -93,7 +93,6 @@ function getCardElement(data) {
   cardImage.alt = data.name;
 
   cardTitle.textContent = data.name;
-
   return cardelement;
 }
 
@@ -101,6 +100,7 @@ for (let i = 0; i < initialCards.length; i++) {
   let cards = getCardElement(initialCards[i]);
   cardsList.appendChild(cards);
 }
+
 /*
  ** Event Listeners
  */

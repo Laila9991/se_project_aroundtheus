@@ -26,25 +26,29 @@
 }
 .modal__close {
   background-image: url("../images/close-icon.svg ");
-  padding: 0;
-  border: none;
+  position: absolute;
   outline: inherit;
+  padding: 0;
 
-  position: relative;
+  border: none;
+  top: -40px;
+  right: -40px;
+  background-color: unset;
+  border: none;
   height: 40px;
   width: 40px;
-  background-color: rgba(0, 0, 0, 0);
+  background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
-  top: -90px;
-  left: 430px;
-  margin-top: -40px;
+  background-color: rgba(0, 0, 0, 0);
+  cursor: pointer;
 }
+
 .modal__close:hover {
   opacity: 0.6;
 }
 
-.modal__submit-btn {
+.popup__form-button {
   color: white;
   background-color: black;
 
@@ -56,7 +60,7 @@
   margin-top: 48px;
 }
 
-.modal__submit-btn:hover {
+.popup__form-button:hover {
   opacity: 0.8;
   cursor: pointer;
 }
@@ -75,25 +79,24 @@
 }
 
 @media screen and (max-width: 800px) {
-  .modal__body {
-    width: 282px;
-  }
-
   .modal__close {
+    top: -40px;
+    right: 10px;
     width: 26px;
     height: 26px;
-    top: -336px;
-    left: 250px;
-    margin-top: -26px;
   }
+
   .modal__description {
     width: 238px;
     margin-left: 22px;
     margin-right: 22px;
     margin-top: 28px;
+    font-size: 18px;
+    line-height: 22px;
   }
-  .modal__submit-btn {
+  .popup__form-button {
     width: 238px;
+    height: 46px;
     margin-top: 45px;
     font-size: 14px;
   }
