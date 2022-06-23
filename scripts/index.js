@@ -45,16 +45,16 @@ const cardTemplate = document
 const headerName = document.querySelector(".profile__name");
 const headerDescription = document.querySelector(".profile__description");
 
-const subtitleBtn = document.querySelector(".modal__submit-btn");
+const subtitleBtn = document.querySelector(".popup__button");
 const editBtn = document.querySelector(".profile__button-edit");
 
 //modal
-const modal = document.querySelector(".modal");
-const closeBtn = document.querySelector(".modal__close");
+const modal = document.querySelector(".popup");
+const closeBtn = document.querySelector(".popup__close");
 const cardsList = document.querySelector(".cards__list");
 
 //form
-const form = document.querySelector(".form");
+const form = document.querySelector(".popup__form");
 const inputName = document.querySelector("#list-name");
 const inputDescription = document.querySelector("#list-description");
 

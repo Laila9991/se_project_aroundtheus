@@ -1,4 +1,4 @@
-.modal {
+.popup {
   display: none;
   justify-content: center;
   align-items: center;
@@ -17,14 +17,14 @@
   display: flex;
 }
 
-.modal__body {
+.popup__body {
   position: relative;
 
   margin: 0 auto;
   border-radius: 10px;
   background-color: #fefefe;
 }
-.modal__close {
+.popup__close {
   background-image: url("../images/close-icon.svg ");
   position: absolute;
   outline: inherit;
@@ -41,7 +41,7 @@
   cursor: pointer;
 }
 
-.modal__close:hover {
+.popup__close:hover {
   opacity: 0.6;
 }
 
@@ -62,7 +62,7 @@
   cursor: pointer;
 }
 
-.modal__description {
+.popup__description {
   font-family: "Inter", Arial, sans-serif;
   font-style: normal;
   font-size: 24px;
@@ -75,15 +75,48 @@
   margin-bottom: 0;
 }
 
+.popup__form {
+  display: flex;
+  width: 358px;
+
+  margin: 0 auto;
+  flex-direction: column;
+  padding-bottom: 36px;
+  margin-top: 40px;
+}
+
+.popup__input {
+  font-family: "Inter", Arial, sans-serif;
+  font-style: normal;
+  height: 40.52px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  line-height: 1.2;
+  width: 100%;
+  border: none;
+  padding: 0;
+  margin: 0;
+  border-bottom: 1px solid rgba(84, 84, 84, 0.2);
+}
+
+.popup__input::placeholder {
+  color: #333;
+}
+
+.popup__input:nth-of-type(1) {
+  margin-top: 14px;
+}
+
 @media screen and (max-width: 800px) {
-  .modal__close {
+  .popup__close {
     top: -40px;
     right: 10px;
     width: 26px;
     height: 26px;
   }
 
-  .modal__description {
+  .popup__description {
     width: 238px;
     margin-left: 22px;
     margin-right: 22px;
@@ -96,5 +129,10 @@
     height: 46px;
     margin-top: 45px;
     font-size: 14px;
+  }
+  .popup__form {
+    width: 238px;
+    padding-bottom: 25px;
+    margin-top: 62px;
   }
 }
