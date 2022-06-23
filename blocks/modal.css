@@ -45,7 +45,7 @@
   opacity: 0.6;
 }
 
-.popup__form-button {
+.popup__button {
   color: white;
   background-color: black;
 
@@ -57,7 +57,7 @@
   margin-top: 48px;
 }
 
-.popup__form-button:hover {
+.popup__button:hover {
   opacity: 0.8;
   cursor: pointer;
 }
@@ -91,7 +91,7 @@
     font-size: 18px;
     line-height: 22px;
   }
-  .popup__form-button {
+  .popup__button {
     width: 238px;
     height: 46px;
     margin-top: 45px;
