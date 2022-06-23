@@ -29,11 +29,8 @@
   position: absolute;
   outline: inherit;
   padding: 0;
-
-  border: none;
   top: -40px;
   right: -40px;
-  background-color: unset;
   border: none;
   height: 40px;
   width: 40px;
