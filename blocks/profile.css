@@ -22,6 +22,7 @@
   font-size: 42px;
   line-height: 48px;
   max-width: 373px;
+  overflow: hidden;
   font-family: "Inter", Arial, sans-serif;
 }
 
@@ -87,6 +88,12 @@
 
   .profile__info-description {
     margin: 26.25px auto 0px;
+
+    justify-content: center;
+
+    margin: 0;
+    max-height: 50px;
+    max-width: 282px;
   }
   .profile__info-container {
     justify-content: center;
@@ -109,8 +116,8 @@
     min-width: 282px;
   }
   .profile__button-edit {
-    width: 18px;
-    height: 18px;
+    max-width: 18px;
+    max-height: 18px;
   }
 
   .profile__add-button {
