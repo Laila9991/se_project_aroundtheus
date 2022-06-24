@@ -13,11 +13,12 @@
   margin: 0;
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .profile__name {
   margin: 0 auto;
-
+  white-space: nowrap;
   font-weight: 500;
   font-size: 42px;
   line-height: 48px;
