@@ -23,6 +23,7 @@
   line-height: 48px;
   max-width: 373px;
   overflow: hidden;
+  text-overflow: ellipsis;
   font-family: "Inter", Arial, sans-serif;
 }
 
