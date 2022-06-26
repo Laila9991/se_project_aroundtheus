@@ -17,13 +17,14 @@
 }
 
 .profile__name {
-  margin: 0 auto;
-  white-space:nowrap;
+  margin: 0;
+  white-space: nowrap;
   font-weight: 500;
   font-size: 42px;
   line-height: 48px;
   max-width: 373px;
   overflow: hidden;
+  
   text-overflow: ellipsis;
   font-family: "Inter", Arial, sans-serif;
 }
@@ -105,7 +106,7 @@
     margin: 0;
   }
   .profile__name {
-    max-width: 196px;
+    min-width: 196px;
     font-size: 22px;
     line-height: 27px;
     text-overflow: ellipsis;
@@ -118,10 +119,13 @@
     line-height: 17px;
     text-align: center;
     min-width: 282px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
   }
   .profile__button-edit {
-    max-width: 18px;
-    max-height: 18px;
+    min-width: 18px;
+    min-height: 18px;
   }
 
   .profile__add-button {
