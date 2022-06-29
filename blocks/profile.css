@@ -97,7 +97,7 @@
     margin: 26.25px auto 0px;
 
     justify-content: center;
-    max-height: 50px;
+   
     max-width: 282px;
   }
   .profile__info-container {
@@ -125,7 +125,6 @@
   .profile__button-edit {
     width: 18px;
     height: 18px;
-    
  
   }
 

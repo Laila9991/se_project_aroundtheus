@@ -48,7 +48,8 @@
 .popup__button {
   color: white;
   background-color: black;
-
+  font-size: 18px;
+  line-height: 22px;
   border-radius: 3px;
   border: 0;
   padding: 0;
