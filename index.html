@@ -37,9 +37,10 @@
           </div>
           <p class="profile__description">Explorer</p>
         </div>
+
         <button
           type="button"
-          class="profile__add-button"
+          class="profile__add-button" id="add-button"
           aria-label="add"
         ></button>
       </section>
@@ -48,46 +49,93 @@
         <ul class="cards__list"></ul>
       </section>
 
-      <section class="popup">
+
+
+
+      <div class="popup" id ="edit-popup">
         <div class="popup__body">
           <h2 class="popup__description">Edit profile</h2>
 
           <button class="popup__close" type="button"></button>
 
-          <form class="popup__form" name="popup__form">
+          <form class="popup__form" id="edit-profile-form">
             <input
-              placeholder="Jacques Cousteau"
+              placeholder="Jacues Cousteau"
               type="text"
-              name="list-name"
-              id="list-name"
-              class="popup__input"
-              value=""
+              name="title"
+              class="popup__input popup__input_type_name"
+            
             />
 
             <input
               placeholder="Explorer"
               type="text"
-              name="list-description"
-              id="list-description"
-              class="popup__input"
-              value=""
+              name="linke"
+              class="popup__input popup__input_type_description"
+              
             />
 
             <button class="popup__button" type="submit">save</button>
           </form>
         </div>
-      </section>
+      </div>
+
+
+
+
+      <div class="popup" id="add-popup">
+        <div class="popup__body">
+          <h2 class="popup__description">New Place</h2>
+
+          <button class="popup__close" type="button"></button>
+
+          <form class="popup__form" id="add-card-form">
+            <input
+            placeholder="Title"
+            required
+              type="text"
+              name="title"
+              
+              class="popup__input popup__input_type_name"
+              popup__input_type_name
+              
+            />
+
+            <input
+            placeholder="Image Link"
+            required
+              type="text"
+              name="linke"
+            
+              class="popup__input  popup__input_type_description"
+             
+            />
+
+            <button class="popup__button" type="submit">save</button>
+          </form>
+        </div>
+
+</div>
+
+
+
+
+
+
     </main>
     <footer class="footer">
       <p class="footer__copyright">&#169; 2022 Around The U.S.</p>
     </footer>
+<div class="popup_type_edit"></div>
 
-    <!-- Scripts go here -->
     <script defer src="./scripts/index.js"></script>
 
     <template id="card-template">
       <li class="card__content">
-        <img class="card__image" />
+        <img 
+       
+        class="card__image" 
+        />
         <div class="card__description">
           <h2 class="card__text"></h2>
           <button class="card__button-like" type="button"></button>
@@ -96,4 +144,5 @@
     </template>
   </body>
 </html>
+
 
