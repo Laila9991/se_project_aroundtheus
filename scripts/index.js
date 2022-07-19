@@ -1,8 +1,4 @@
-/*
- ** array of Date
- */
-
- const initialCards = [
+const initialCards = [
   {
     name: "Yosemite Valley ",
     linke: "https://code.s3.yandex.net/web-code/yosemite.jpg ",
@@ -76,7 +72,7 @@ const profiledescriptonInput=document.querySelector(".popup__input_type_descript
 //modal
 const modal = document.querySelector(".popup");
 const closeBtn = document.querySelector(".popup__close");
-const cardsList = document.querySelector(".cards__list");
+
 
 //form
 const form = document.querySelector(".popup__form");
@@ -104,9 +100,6 @@ const form = document.querySelector(".popup__form");
 function openPopup(modal) {
 modal.classList.add("popup_opened");
 }
-
-
-
 
 
 
@@ -158,7 +151,7 @@ profileAddCloseBtn.addEventListener("click", ()=>{
 
 
 
-
+//eventlistener
 editBtn.addEventListener("click", openProfile);
 profileEditform.addEventListener("submit", ProfileFormSubmit);
 
@@ -166,74 +159,35 @@ profileEditform.addEventListener("submit", ProfileFormSubmit);
 
 
 
-
-
-
-
-
-function getCard(data){
-  
+function generateCard(Cards){
   //clone template
-    const cardelement = cardTemplate.cloneNode(true);
-    // find .card__image
-    const cardImage = cardelement.querySelector(".card__image");
-    //find card text
-    const cardTitle = cardelement.querySelector(".card__text");
-  // replace image src
-    cardImage.src = data.linke;
-    //replace name alt 
-    cardImage.alt = data.name;
-   
-    //append to list
-    cardTitle.textContent = data.name;
-    //card element is the clone 
+  const cardelement = cardTemplate.cloneNode(true);
+  // find .card__image
+  cardelement.querySelector(".card__image").style.backgroundImage=`url(${Cards.linke})`;
+  //find card text
+ cardelement.querySelector(".card__text").textContent= Cards.name;
 
-    return cardelement;
-   
-   
+ return cardelement;
+
+};
+
+
+function renderCard(Cards, container){
+
+  container.append(Cards);
 
 
 }
 
 
-cardAddForm.addEventListener("submit", (event)=>{
-  event.preventDefault();
-
-  const name= event.target.title.value;
-  const link= event.target.linke.value;
+initialCards.forEach(function(Cards){
   
-  const cardView =getCard({
-    name,
-    link,
-
-
-  });
+const newCard= generateCard(Cards);
  
-
-
-
-  rederCard(cardView, cardlist);
-  closePopup(profileAddPopup);
-
-  });
+renderCard(newCard, cardlist);
   
 
-initialCards.forEach(function(data){
-
- const cardView=getCard(data);
-console.log(cardView);
-      rederCard(cardView, cardlist) ;
-    
-    });
-    
-
-    function rederCard( cardelement, container){
-      //append to list 
-      container.prepend(cardelement);
-    }
-    
-
-
+});
 
 
 
