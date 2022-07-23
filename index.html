@@ -39,24 +39,19 @@
         </div>
 
         <button
-          type="button"
+          
           class="profile__add-button" id="add-button"
-          aria-label="add"
+          aria-label="add" 
         ></button>
       </section>
 
-      <section class="cards">
-        <ul class="cards__list"></ul>
-      </section>
-
-
-
+    
 
       <div class="popup" id ="edit-popup">
         <div class="popup__body">
           <h2 class="popup__description">Edit profile</h2>
 
-          <button class="popup__close" type="button"></button>
+       
 
           <form class="popup__form" id="edit-profile-form">
             <input
@@ -74,9 +69,18 @@
             />
 
             <button class="popup__button" type="submit">save</button>
+            
           </form>
+
+          <button class="popup__close" type="button"></button>
         </div>
       </div>
+
+
+  
+
+
+
 
 
 
@@ -94,7 +98,7 @@
               type="text"
               name="title"
               
-              class="popup__input popup__input_type_name"
+              class="popup__input popup__type_name"
               
               
             />
@@ -104,40 +108,68 @@
             required
               type="text"
               name="linke"
-              
-              class="popup__input  popup__input_type_description"
+          
+              class="popup__input  popup__type_description"
              
             />
 
-            <button class="popup__button" type="submit">save</button>
+            <button class="popup__button" type="submit">Save</button>
           </form>
+          <button class="popup__close" type="button"></button>
         </div>
 
 </div>
 
 
 
+<div class="popup content__popup">
+  <div class="popup__body-alt">
+    <img
+      class="popup__image"
+      src=" "
+      alt=" "
+    >
+    <h4 class="popup__header"></h4>
+    <button class="popup__close" type="button"></button>
+  </div>
+</div>
 
 
 
     </main>
-    <footer class="footer">
-      <p class="footer__copyright">&#169; 2022 Around The U.S.</p>
-    </footer>
-<div class="popup_type_edit"></div>
+  
 
     <script defer src="./scripts/index.js"></script>
-
+<ul class="cards">
     <template id="card-template">
       <li class="card__content">
-        <img class="card__image" src=" " >
+        <button type="button" class="button_type_trash"></button>
+        <button type="button" class="button_type_image">
+        <img 
+        class="card__image" 
+        src=" "
+        alt=" "
+    
+        />
+      </button>
         <div class="card__description">
           <h2 class="card__text"></h2>
           <button class="card__button-like" type="button"></button>
         </div>
       </li>
     </template>
+  </ul>
+  <footer class="footer">
+    <p class="footer__copyright">&#169; 2022 Around The U.S.</p>
+  </footer>
+
   </body>
 </html>
+
+
+
+
+
+
 
 

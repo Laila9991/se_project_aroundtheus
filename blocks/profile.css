@@ -6,6 +6,7 @@
   width: calc(100% - 38px);
   align-items: center;
   box-sizing: border-box;
+ 
 }
 
 .profile__info-container {
@@ -95,9 +96,7 @@
 
   .profile__info-description {
     margin: 26.25px auto 0px;
-
     justify-content: center;
-   
     max-width: 282px;
   }
   .profile__info-container {
