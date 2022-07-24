@@ -229,7 +229,7 @@ closeButtons.forEach((button) => {
   initialCards.forEach((element) => renderCard(createCard(element)));
 
 
-  const imagePopup = document.querySelector(".content__popup");
+  const imagePopup = document.querySelector("#content__popup");
   const imagepopupBackground = imagePopup.querySelector(".popup__image");
   const imagepopupHeader = imagePopup.querySelector(".popup__header");
 
