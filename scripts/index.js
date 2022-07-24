@@ -57,23 +57,6 @@ const cardAddButton= document.querySelector("#add-button");
 
 
 
-
-
-
-
-
-
-
-
-//übergebe
-
-
-
-
-
-
-
-
 //modal
 const modal = document.querySelector(".popup");
 const closeBtn = document.querySelector(".popup__close");
@@ -85,22 +68,8 @@ const form = document.querySelector(".popup__form");
 
 
 
-
-
-
-
-
-/*
- ** Init
- */
-
-
-/*
- ** Function
- */
-
- const TitleInput =document.querySelector(" .popup__input_type_name");
-const descriptonInput=document.querySelector(".popup__input_type_description");
+ const TitleInput =document.querySelector(" .popup__name");
+const descriptonInput=document.querySelector(".popup__description");
 
 
  function closePopup(modal) {
@@ -145,6 +114,7 @@ const descriptonInput=document.querySelector(".popup__input_type_description");
 
 
 
+
   cardAddButton.addEventListener("click",()=>
   {  
     
@@ -154,29 +124,10 @@ const descriptonInput=document.querySelector(".popup__input_type_description");
 
 
 
-  
-
-
- 
-    
- 
-  
-
-
-
-
-
-
-
-
-
 
 //eventlistener
 editBtn.addEventListener('click', openProfile);
 profileEditform.addEventListener("submit", ProfileFormSubmit);
-
-
-
 
 
   const cardTemplate = document
