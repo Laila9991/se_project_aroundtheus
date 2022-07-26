@@ -59,17 +59,18 @@ const cardAddButton= document.querySelector("#add-button");
 
 //modal
 const modal = document.querySelector(".popup");
-const closeBtn = document.querySelector(".popup__close");
+
 
 
 //form
-const form = document.querySelector(".popup__form");
+const profileForm = document.querySelector(".popup__form");
 
 
 
 
- const TitleInput =document.querySelector(" .popup__name");
-const descriptonInput=document.querySelector(".popup__description");
+ const titleInput =document.querySelector( ".popup__input_type_name");
+
+const descriptonInput=document.querySelector(".popup__input_type_description");
 
 
  function closePopup(modal) {
@@ -91,7 +92,7 @@ const descriptonInput=document.querySelector(".popup__description");
 
   function ProfileFormSubmit(evt) {
     evt.preventDefault();
-    headerName.textContent = TitleInput.value;
+    headerName.textContent = titleInput.value;
   headerDescription.textContent = descriptonInput.value;
   
   closePopup(profileEditPopup);
@@ -103,7 +104,7 @@ const descriptonInput=document.querySelector(".popup__description");
 
   function openProfile() {
     
-    TitleInput.value = headerName.textContent;
+    titleInput.value = headerName.textContent;
     descriptonInput.value = headerDescription.textContent;
    openPopup(profileEditPopup);
  
@@ -144,33 +145,33 @@ profileEditform.addEventListener("submit", ProfileFormSubmit);
   function createCard(data) {
 
    
-    const cardlEment = cardTemplate.cloneNode(true);
+    const cardElement = cardTemplate.cloneNode(true);
 
-    const cardElementImage = cardlEment.querySelector(".card__image");
-    const cardHeader = cardlEment.querySelector(".card__text");
+    const cardElementImage = cardElement.querySelector(".card__image");
+    const cardHeader = cardElement.querySelector(".card__text");
   
-    const cardButton = cardlEment.querySelector(".button_type_trash");
+    const cardButton = cardElement.querySelector(".button_type_trash");
     function removeCard() {  
-      cardlEment.remove();
+      cardElement.remove();
     }
     cardButton.addEventListener("click", removeCard);
   
     
 
-  const cardLikeButton = cardlEment.querySelector(".card__button-like");
+  const cardLikeButton = cardElement.querySelector(".card__button-like");
   
    cardLikeButton.addEventListener("click", () => toggleLike(cardLikeButton));
   
-    const cardImageButton = cardlEment.querySelector(".button_type_image");
+    const cardImageButton = cardElement.querySelector(".button_type_image");
     function openCardImageModal() {
-      fillImageModal(data);
-      openImageModal();
+      fillImageModal(data); 
+      
     }
   
 
-    const cardTrashButton = cardlEment.querySelector(".button_type_trash");
+    const cardTrashButton = cardElement.querySelector(".button_type_trash");
     function removeCard() {
-      cardlEment.remove();
+      cardElement.remove();
     }
 
     cardTrashButton.addEventListener("click", removeCard);
@@ -184,20 +185,20 @@ profileEditform.addEventListener("submit", ProfileFormSubmit);
     cardElementImage.setAttribute("src", cardLink);
     cardElementImage.setAttribute("alt", `Photo of ${cardTitle}`);
     cardHeader.textContent = cardTitle;
-    return cardlEment;
+    return cardElement;
   }
   
 
 
   const cardAddForm = document.querySelector("#add-card-form");
-const profileTitleInput =document.querySelector(" .popup__type_name");
-const profiledescriptonInput=document.querySelector(".popup__type_description");
+const cardNameInput =document.querySelector(" .popup__name");
+const cardLinkInput=document.querySelector(".popup__description");
 
 function handleCardFormSubmit(evt) {
   evt.preventDefault();
   const newCard = {
-    name: profileTitleInput.value,
-    linke: profiledescriptonInput.value
+    name: cardNameInput.value,
+    linke: cardLinkInput.value
   };
 
   renderNewCard(createCard(newCard));
@@ -233,17 +234,17 @@ closeButtons.forEach((button) => {
   const imagepopupBackground = imagePopup.querySelector(".popup__image");
   const imagepopupHeader = imagePopup.querySelector(".popup__header");
 
-  function openimagePopul() {
+  function openImagePopup() {
     openPopup(imagePopup);
   }
 
   function fillImageModal(data) {
-    imagePopup.setAttribute("src", data.linke);
-    imagepopupBackground.setAttribute("src",  data.linke);
+    imagepopupBackground.setAttribute("src", data.linke)
+    imagepopupBackground.setAttribute("alt", `Photo of ${data.linke}`);
     imagepopupHeader.textContent = data.name;
-    openimagePopul();
-    return  imagePopup;
+    openImagePopup();
+    
   }
 
 
-
+  openImagpup();
