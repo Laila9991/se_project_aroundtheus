@@ -58,7 +58,7 @@ const cardAddButton= document.querySelector("#add-button");
 
 
 //modal
-const modal = document.querySelector(".popup");
+const profileModal = document.querySelector(".popup");
 
 
 
@@ -190,15 +190,15 @@ profileEditform.addEventListener("submit", ProfileFormSubmit);
   
 
 
-  const cardAddForm = document.querySelector("#add-card-form");
+const cardAddForm = document.querySelector("#add-card-form");
 const cardNameInput =document.querySelector(" .popup__name");
-const cardLinkInput=document.querySelector(".popup__description");
+const cardDescriptionInput=document.querySelector(".popup__description");
 
 function handleCardFormSubmit(evt) {
   evt.preventDefault();
   const newCard = {
     name: cardNameInput.value,
-    linke: cardLinkInput.value
+    linke: cardDescriptionInput.value
   };
 
   renderNewCard(createCard(newCard));
@@ -247,4 +247,4 @@ closeButtons.forEach((button) => {
   }
 
 
-  openImagpup();
+
