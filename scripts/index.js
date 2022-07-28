@@ -1,30 +1,30 @@
 const initialCards = [
   {
     name: "Yosemite Valley ",
-    linke: "https://code.s3.yandex.net/web-code/yosemite.jpg ",
+    link: "https://code.s3.yandex.net/web-code/yosemite.jpg ",
   },
 
   {
     name: "Lake Louise ",
-    linke: "https://code.s3.yandex.net/web-code/lake-louise.jpg  ",
+    link: "https://code.s3.yandex.net/web-code/lake-louise.jpg  ",
   },
   {
     name: "Bald Mountains ",
-    linke: "https://code.s3.yandex.net/web-code/bald-mountains.jpg ",
+    link: "https://code.s3.yandex.net/web-code/bald-mountains.jpg ",
   },
   {
     name: "Latemar ",
-    linke: "https://code.s3.yandex.net/web-code/latemar.jpg ",
+    link: "https://code.s3.yandex.net/web-code/latemar.jpg ",
   },
 
   {
     name: "Vanoise National Park ",
-    linke: " https://code.s3.yandex.net/web-code/vanoise.jpg ",
+    link: " https://code.s3.yandex.net/web-code/vanoise.jpg ",
   },
 
   {
     name: "Lago di Braies ",
-    linke: "https://code.s3.yandex.net/web-code/lago.jpg  ",
+    link: "https://code.s3.yandex.net/web-code/lago.jpg  ",
   },
 ];
 
@@ -58,7 +58,7 @@ const cardAddButton= document.querySelector("#add-button");
 
 
 //modal
-const profileModal = document.querySelector(".popup");
+const modal = document.querySelector(".popup");
 
 
 
@@ -88,9 +88,9 @@ const descriptonInput=document.querySelector(".popup__input_type_description");
   closePopup(profileEditPopup);
   });
 
+  
 
-
-  function ProfileFormSubmit(evt) {
+  function handleProfileFormSubmit(evt) {
     evt.preventDefault();
     headerName.textContent = titleInput.value;
   headerDescription.textContent = descriptonInput.value;
@@ -128,7 +128,7 @@ const descriptonInput=document.querySelector(".popup__input_type_description");
 
 //eventlistener
 editBtn.addEventListener('click', openProfile);
-profileEditform.addEventListener("submit", ProfileFormSubmit);
+profileEditform.addEventListener("submit", handleProfileFormSubmit);
 
 
   const cardTemplate = document
@@ -164,7 +164,7 @@ profileEditform.addEventListener("submit", ProfileFormSubmit);
   
     const cardImageButton = cardElement.querySelector(".button_type_image");
     function openCardImageModal() {
-      fillImageModal(data); 
+      openImagePrevie(data); 
       
     }
   
@@ -181,7 +181,7 @@ profileEditform.addEventListener("submit", ProfileFormSubmit);
     cardImageButton.addEventListener("click", openCardImageModal);
   
     const cardTitle = data.name;
-    const cardLink = data.linke;
+    const cardLink = data.link;
     cardElementImage.setAttribute("src", cardLink);
     cardElementImage.setAttribute("alt", `Photo of ${cardTitle}`);
     cardHeader.textContent = cardTitle;
@@ -198,7 +198,7 @@ function handleCardFormSubmit(evt) {
   evt.preventDefault();
   const newCard = {
     name: cardNameInput.value,
-    linke: cardDescriptionInput.value
+    link: cardDescriptionInput.value
   };
 
   renderNewCard(createCard(newCard));
@@ -238,9 +238,9 @@ closeButtons.forEach((button) => {
     openPopup(imagePopup);
   }
 
-  function fillImageModal(data) {
-    imagepopupBackground.setAttribute("src", data.linke)
-    imagepopupBackground.setAttribute("alt", `Photo of ${data.linke}`);
+  function openImagePrevie(data) {
+    imagepopupBackground.setAttribute("src", data.link)
+    imagepopupBackground.setAttribute("alt", `Photo of ${data.link}`);
     imagepopupHeader.textContent = data.name;
     openImagePopup();
     
