@@ -145,8 +145,7 @@ function createCard(data) {
 
 const cardAddForm = document.querySelector("#add-card-form");
 const cardNameInput = document.querySelector(" .popup__name");
-const cardDescriptionInput = document.querySelector(".popup__description");
-
+const cardDescriptionInput = document.querySelector("input.popup__description"); 
 function handleCardFormSubmit(evt) {
   evt.preventDefault();
   const newCard = {
@@ -156,7 +155,7 @@ function handleCardFormSubmit(evt) {
 
   renderNewCard(createCard(newCard));
   evt.target.reset();
-  closePopup();
+  closePopup(profileEditPopup);
 }
 
 cardAddForm.addEventListener("submit", handleCardFormSubmit);
