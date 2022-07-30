@@ -155,7 +155,7 @@ function handleCardFormSubmit(evt) {
 
   renderNewCard(createCard(newCard));
   evt.target.reset();
-  closePopup(profileEditPopup);
+  closePopup(cardAddForm);
 }
 
 cardAddForm.addEventListener("submit", handleCardFormSubmit);
@@ -179,7 +179,7 @@ initialCards.forEach((element) => renderCard(createCard(element)));
 
 const imagePopup = document.querySelector("#content__popup");
 const imagepopupBackground = imagePopup.querySelector(".popup__image");
-const imagepopupHeader = imagePopup.querySelector(".popup__header");
+const imagePopupBackground = imagePopup.querySelector(".popup__header");
 
 function openImagePopup() {
   openPopup(imagePopup);
@@ -188,6 +188,6 @@ function openImagePopup() {
 function openImagePrevie(data) {
   imagepopupBackground.setAttribute("src", data.link);
   imagepopupBackground.setAttribute("alt", `Photo of ${data.link}`);
-  imagepopupHeader.textContent = data.name;
+  imagePopupBackground.textContent = data.name;
   openImagePopup();
 }

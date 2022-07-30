@@ -57,15 +57,17 @@
 
 .button_type_trash {
   background-color: rgba(255, 255, 255, 0);
+  border: none;
   min-width: 18px;
   min-height: 19.3px;
   position:relative;
   top: 38px;
   left: 240px;
   background-image: url(../images/icon\ trash.svg);
-  border:none;
 
 
+
+  
   
 
 }
