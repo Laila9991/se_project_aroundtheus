@@ -45,7 +45,7 @@ const profileEditform = document.querySelector("#edit-profile-form");
 
 const subtitleBtn = document.querySelector(".popup__button");
 
-const profileAddPopup = document.querySelector("#add-popup");
+const cardAddPopup = document.querySelector("#add-popup");
 
 const cardAddButton = document.querySelector("#add-button");
 
@@ -88,7 +88,7 @@ function openProfile() {
 }
 
 cardAddButton.addEventListener("click", () => {
-  openPopup(profileAddPopup);
+  openPopup(cardAddPopup);
 });
 
 //eventlistener
@@ -155,7 +155,7 @@ function handleCardFormSubmit(evt) {
 
   renderNewCard(createCard(newCard));
   evt.target.reset();
-  closePopup(cardAddForm);
+  closePopup(cardAddPopup);
 }
 
 cardAddForm.addEventListener("submit", handleCardFormSubmit);
@@ -178,16 +178,16 @@ function renderCard(card) {
 initialCards.forEach((element) => renderCard(createCard(element)));
 
 const imagePopup = document.querySelector("#content__popup");
-const imagepopupBackground = imagePopup.querySelector(".popup__image");
-const imagePopupBackground = imagePopup.querySelector(".popup__header");
+const imagePopupBackground = imagePopup.querySelector(".popup__image");
+const imagePopupTitle = imagePopup.querySelector(".popup__header");
 
 function openImagePopup() {
   openPopup(imagePopup);
 }
 
 function openImagePrevie(data) {
-  imagepopupBackground.setAttribute("src", data.link);
-  imagepopupBackground.setAttribute("alt", `Photo of ${data.link}`);
+  imagePopupBackground.setAttribute("src", data.link);
+  imagePopupBackground.setAttribute("alt", `Photo of ${data.link}`);
   imagePopupBackground.textContent = data.name;
   openImagePopup();
 }
