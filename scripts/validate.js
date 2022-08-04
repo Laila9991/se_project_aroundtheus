@@ -52,22 +52,21 @@ formEls.forEach((formEl)=>{
 
  });
 setEventlisteners(formEl, option);
-// look for all inputs insede of form
-// loop all the input to see of all are valid 
-// if input is not valid // grad the validation message 
-// add error class to input 
-// show display error message 
-//  button disable
-// if all input are valid
-//enable button 
-// reset error message 
+
 
 
 });
 };
 
 
- 
+function enableValidation(option){
+    const { formSelector } = option;
+     const formEls =[...document.querySelectorAll(formSelector)];
+    formEls.forEach((formEl)=>{
+     formEl.addEventListener("submit", (e) =>{
+        e.preventDefault();
+    
+     });
 
 
 
