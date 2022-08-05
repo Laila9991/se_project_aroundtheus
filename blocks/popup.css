@@ -146,7 +146,7 @@
   padding: 0;
   font-size: 12px;
   line-height: 15px;
-  color: #ff0000;
+  
   opacity: 0;
 }
 .popup__error_visible {
@@ -154,6 +154,11 @@
 }
 
 
+.popup__button_disabled {
+  color:rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
 
 .popup__header{
   font-family: 'Inter';

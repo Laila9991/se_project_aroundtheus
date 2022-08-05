@@ -35,6 +35,9 @@ const initialCards = [
 
 //header
 
+
+
+
 const headerName = document.querySelector(".profile__name");
 const headerDescription = document.querySelector(".profile__description");
 
@@ -191,3 +194,13 @@ function openImagePrevie(data) {
   imagePopupBackground.textContent = data.name;
   openImagePopup();
 }
+
+
+
+document.addEventListener("mouseup", (e) => {
+  let openPopup = document.querySelector(".popup_opened");
+  if (openPopup === null) {return;}
+  else if (e.target === openPopup) {
+    closePopup(openPopup);
+  };
+});

@@ -7,15 +7,15 @@ errorMessageEl.textContent= inputEl.validationMessage;
 errorMessageEl.classList.add(errorClass);
 
 }
-const hideInputError = (formEl, inputEl, options) => {
-    const { inputErrorClass, errorClass } = options;
+const hideInputError = (formEl, inputEl, option) => {
+    const { inputErrorClass, errorClass } = option;
   const errorMessageEl = formEl.querySelector(`#${inputEl.id}-error`);
   inputEl.classList.remove(inputErrorClass);
   errorMessageEl.textContent = "";
   errorMessageEl.classList.remove(errorClass);
+};
 
 
- };
 
 
 const checkInputValidity = (formEl, inputEl, option) => {
@@ -28,6 +28,26 @@ const checkInputValidity = (formEl, inputEl, option) => {
 
 
 
+  
+  const toggleButtonState = (inputEls, submitButton, option) => {
+    const {inactiveButtonClass} = option;
+    let foundInvalid = false;
+    inputEls.forEach(input => {
+      if (!input.validity.valid) {
+        foundInvalid = true;
+      }
+    });
+  
+    if (foundInvalid) {
+      submitButton.classList.add(inactiveButtonClass);
+      submitButton.disabled = true;
+    } else {
+      submitButton.classList.remove(inactiveButtonClass);
+      submitButton.disabled = false;
+    }
+  };
+
+
 function setEventlisteners(formEl, option){
 const {inputSelector}=option;
 const inputEls =[...formEl.querySelectorAll(inputSelector)];
@@ -36,6 +56,8 @@ const submitButton = formEl.querySelector('.popup__button');
 inputEls.forEach((inputEl) => {
 inputEl.addEventListener("input",(e) =>  {
 checkInputValidity(formEl, inputEl, option);
+toggleButtonState(inputEls, submitButton, option);
+
 
 });
 });
@@ -43,6 +65,11 @@ checkInputValidity(formEl, inputEl, option);
    
 
 
+
+
+
+
+//start
 function enableValidation(option){
 const { formSelector } = option;
  const formEls =[...document.querySelectorAll(formSelector)];
@@ -54,19 +81,8 @@ formEls.forEach((formEl)=>{
 setEventlisteners(formEl, option);
 
 
-
 });
 };
-
-
-function enableValidation(option){
-    const { formSelector } = option;
-     const formEls =[...document.querySelectorAll(formSelector)];
-    formEls.forEach((formEl)=>{
-     formEl.addEventListener("submit", (e) =>{
-        e.preventDefault();
-    
-     });
 
 
 
@@ -84,4 +100,3 @@ const config={
 
 enableValidation(config);
 
-//css reingehen anpassen;
