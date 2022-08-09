@@ -1,5 +1,5 @@
 .popup {
-  display: none;
+  display: flex;
   justify-content: center;
   align-items: center;
   position: fixed;
@@ -10,11 +10,21 @@
 
   right: 0;
   background-color: #00000080;
-  z-index: 1000;
+  z-index: 100;
+  visibility: none; 
+  opacity: 0; 
+  pointer-events: none; 
+  transition: visibility 0s 0.5s, opacity 0.5s linear; 
 }
 
 .popup_opened {
-  display: flex;
+ 
+  visibility: visible;
+  opacity: 1; 
+  pointer-events: all; 
+  transition: visibility 0s, opacity 0.5s linear; 
+
+ 
 }
 
 .popup__body {
@@ -41,9 +51,7 @@
   cursor: pointer;
 }
 
-.popup__close:hover {
-  opacity: 0.6;
-}
+
 
 .popup__button {
   color: white;

@@ -35,9 +35,6 @@ const initialCards = [
 
 //header
 
-
-
-
 const headerName = document.querySelector(".profile__name");
 const headerDescription = document.querySelector(".profile__description");
 
@@ -126,7 +123,7 @@ function createCard(data) {
 
   const cardImageButton = cardElement.querySelector(".button_type_image");
   function openCardImageModal() {
-    openImagePrevie(data);
+    openImagePreview(data);
   }
 
   const cardTrashButton = cardElement.querySelector(".button_type_trash");
@@ -148,7 +145,7 @@ function createCard(data) {
 
 const cardAddForm = document.querySelector("#add-card-form");
 const cardNameInput = document.querySelector(" .popup__name");
-const cardDescriptionInput = document.querySelector("input.popup__description"); 
+const cardDescriptionInput = document.querySelector(".popup__input_desc");
 function handleCardFormSubmit(evt) {
   evt.preventDefault();
   const newCard = {
@@ -157,7 +154,7 @@ function handleCardFormSubmit(evt) {
   };
 
   renderNewCard(createCard(newCard));
-  evt.target.reset();
+  cardAddForm.reset();
   closePopup(cardAddPopup);
 }
 
@@ -188,19 +185,9 @@ function openImagePopup() {
   openPopup(imagePopup);
 }
 
-function openImagePrevie(data) {
+function openImagePreview(data) {
   imagePopupBackground.setAttribute("src", data.link);
   imagePopupBackground.setAttribute("alt", `Photo of ${data.link}`);
   imagePopupBackground.textContent = data.name;
   openImagePopup();
 }
-
-
-
-document.addEventListener("mouseup", (e) => {
-  let openPopup = document.querySelector(".popup_opened");
-  if (openPopup === null) {return;}
-  else if (e.target === openPopup) {
-    closePopup(openPopup);
-  };
-});
