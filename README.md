@@ -1,7 +1,16 @@
-# Project 3: Around The U.S.
+# Project 6: Around The U.S.
+**Overview**
+Figma
+Images
+HTML, CSS, JavaScript
+
 
 **Intro**
-The 3 Project is made with a responsive layout, the site be suitable for all screen sizes and device types. It is created with flexbox and media queries.
+The 6 Project i used 3 different technologies HTML5, CSS, and JavaScript. 
+we learned how to make buttons work using javascript.
+we created pop-ups to display additional content e.g. text, image display.
+
+
 
 **Figma**
 
@@ -10,4 +19,3 @@ The 3 Project is made with a responsive layout, the site be suitable for all scr
 **Github**
 https://github.com/Laila9991/se_project_aroundtheus.git
 
-https://laila9991.github.io/se_project_aroundtheus/

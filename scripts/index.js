@@ -49,8 +49,8 @@ const cardAddPopup = document.querySelector("#add-popup");
 
 const cardAddButton = document.querySelector("#add-button");
 
-//modal
-const modal = document.querySelector(".popup");
+
+
 
 //form
 const profileForm = document.querySelector(".popup__form");
@@ -61,13 +61,17 @@ const descriptonInput = document.querySelector(
   ".popup__input_type_description"
 );
 
-function closePopup(modal) {
-  modal.classList.remove("popup_opened");
-}
 
-function openPopup(modal) {
-  modal.classList.add("popup_opened");
-}
+
+
+
+
+
+
+
+
+
+
 
 profileEditCloseButtton.addEventListener("click", () => {
   closePopup(profileEditPopup);
@@ -111,11 +115,6 @@ function createCard(data) {
   const cardElementImage = cardElement.querySelector(".card__image");
   const cardHeader = cardElement.querySelector(".card__text");
 
-  const cardButton = cardElement.querySelector(".button_type_trash");
-  function removeCard() {
-    cardElement.remove();
-  }
-  cardButton.addEventListener("click", removeCard);
 
   const cardLikeButton = cardElement.querySelector(".card__button-like");
 
@@ -156,6 +155,7 @@ function handleCardFormSubmit(evt) {
   renderNewCard(createCard(newCard));
   cardAddForm.reset();
   closePopup(cardAddPopup);
+  toggleButtonState();
 }
 
 cardAddForm.addEventListener("submit", handleCardFormSubmit);
@@ -191,3 +191,48 @@ function openImagePreview(data) {
   imagePopupBackground.textContent = data.name;
   openImagePopup();
 }
+
+
+
+function closePopupByEscape(event) {
+  if (event.key === "Escape") {
+     // search for an opened popup
+    const openedPopup = document.querySelector(".popup");
+     // close it
+    closePopup(openedPopup)
+  }
+} 
+
+
+
+function closePopup(popup) {
+  popup.classList.remove("popup_opened");
+  document.addEventListener("keydown", closePopupByEscape);
+
+}
+
+function openPopup(popup) {
+  popup.classList.add("popup_opened");
+  document.removeEventListener("keydown", closePopupByEscape);
+
+}
+
+
+
+
+
+// create a outside click listener
+function closePopupOnRemoteClick(evt) {
+  // target is the element on which the event happened
+  // currentTarget is the popup
+  // if they are the same then we should close the popup
+  if (evt.target === evt.currentTarget) { 
+    closePopup(evt.target)
+  }
+}
+
+// when open a popup  in openPopup function
+popup.addEventListener("mousedown", closePopupOnRemoteClick)
+
+// when close a popup  in closePopup function
+popup.removeEventListener("mousedown", closePopupOnRemoteClick) 

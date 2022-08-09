@@ -27,9 +27,10 @@ const showInputError = (formEl, inputEl, validationSettings) => {
       };
     
     
-    
-      
-      const toggleButtonState = (inputEls, submitButton, validationSettings) => {
+      const checkFormValidity  = inputs => inputs.every(input => input.validity.valid);
+
+      const toggleButtonState = (inputEls, submitButton, validationSettings) => { 
+        const isFormValid = checkFormValidity(inputEls); // note, that it checks if form is valid 
         const {inactiveButtonClass} = validationSettings;
         let foundInvalid = false;
         inputEls.forEach(input => {
