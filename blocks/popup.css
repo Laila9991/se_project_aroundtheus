@@ -3,33 +3,27 @@
   justify-content: center;
   align-items: center;
   position: fixed;
-
   top: 0;
   bottom: 0;
   left: 0;
-
   right: 0;
   background-color: #00000080;
   z-index: 100;
-  visibility: none; 
-  opacity: 0; 
-  pointer-events: none; 
-  transition: visibility 0s 0.5s, opacity 0.5s linear; 
+  visibility: none;
+  opacity: 0;
+  pointer-events: none;
+  transition: visibility 0s 0.5s, opacity 0.5s linear;
 }
 
 .popup_opened {
- 
   visibility: visible;
-  opacity: 1; 
-  pointer-events: all; 
-  transition: visibility 0s, opacity 0.5s linear; 
-
- 
+  opacity: 1;
+  pointer-events: all;
+  transition: visibility 0s, opacity 0.5s linear;
 }
 
 .popup__body {
   position: relative;
-
   margin: 0 auto;
   border-radius: 10px;
   background-color: #fefefe;
@@ -50,8 +44,6 @@
   background-color: rgba(0, 0, 0, 0);
   cursor: pointer;
 }
-
-
 
 .popup__button {
   color: white;
@@ -116,36 +108,24 @@
 .popup__input:nth-of-type(1) {
   margin-top: 14px;
 }
-.popup__content_type_preview{
-  
+.popup__content_type_preview {
   max-height: 75vh;
   max-width: 75vw;
   width: auto;
   height: auto;
   background: transparent;
   display: flex;
-    
-  
 }
 
-
-
-.popup__image{
+.popup__image {
   max-width: 75vw;
   max-height: 75vh;
   object-fit: cover;
-  
-  
-
 }
-
-
 
 .popup__input_type_error {
-
   border-bottom: 1px solid #ff0000;
 }
-
 
 .form__input-error {
   position: relative;
@@ -154,32 +134,27 @@
   padding: 0;
   font-size: 12px;
   line-height: 15px;
-  
+
   opacity: 0;
 }
 .popup__error_visible {
-  color:red;
+  color: black;
 }
 
-
 .popup__button_disabled {
-  color:rgba(0, 0, 0, 0.2);
+  color: rgba(0, 0, 0, 0.2);
   background-color: rgba(0, 0, 0, 0);
   border: 1px solid rgba(0, 0, 0, 0.2);
 }
 
-.popup__header{
-  font-family: 'Inter';
+.popup__header {
+  font-family: "Inter";
   font-size: 12px;
   line-height: 15px;
   font-weight: 400;
   margin: 10px 0 0 0;
   color: #fff;
- 
-
-
 }
-
 
 .popup__body-alt {
   background-color: rgba(0, 0, 0, 0);
@@ -189,8 +164,6 @@
   align-items: flex-start;
   position: absolute;
   border-radius: 10px;
-
-
 }
 
 @media screen and (max-width: 800px) {
