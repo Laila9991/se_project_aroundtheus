@@ -155,7 +155,7 @@ function handleCardFormSubmit(evt) {
   renderNewCard(createCard(newCard));
   cardAddForm.reset();
   closePopup(cardAddPopup);
-  toggleButtonState();
+  toggleButtonState(inputEls, submitButton,validationSettings);
 }
 
 cardAddForm.addEventListener("submit", handleCardFormSubmit);
@@ -206,15 +206,16 @@ function closePopupByEscape(event) {
 
 
 function closePopup(popup) {
-  popup.classList.remove("popup_opened");
-  document.addEventListener("keydown", closePopupByEscape);
+  popup.classList.remove("popup_opened"); 
+  document.removeEventListener("keydown", closePopupByEscape); 
+  popup.removeEventListener("mousedown", closePopupOnRemoteClick)
 
 }
 
 function openPopup(popup) {
-  popup.classList.add("popup_opened");
-  document.removeEventListener("keydown", closePopupByEscape);
-
+  popup.classList.add("popup_opened"); 
+  document.addeEventListener("keydown", closePopupByEscape); 
+  popup.addEventListener("mousedown", closePopupOnRemoteClick)
 }
 
 
@@ -231,8 +232,3 @@ function closePopupOnRemoteClick(evt) {
   }
 }
 
-// when open a popup  in openPopup function
-popup.addEventListener("mousedown", closePopupOnRemoteClick)
-
-// when close a popup  in closePopup function
-popup.removeEventListener("mousedown", closePopupOnRemoteClick) 
