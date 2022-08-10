@@ -49,9 +49,6 @@ const cardAddPopup = document.querySelector("#add-popup");
 
 const cardAddButton = document.querySelector("#add-button");
 
-
-
-
 //form
 const profileForm = document.querySelector(".popup__form");
 
@@ -60,18 +57,6 @@ const titleInput = document.querySelector(".popup__input_type_name");
 const descriptonInput = document.querySelector(
   ".popup__input_type_description"
 );
-
-
-
-
-
-
-
-
-
-
-
-
 
 profileEditCloseButtton.addEventListener("click", () => {
   closePopup(profileEditPopup);
@@ -115,7 +100,6 @@ function createCard(data) {
   const cardElementImage = cardElement.querySelector(".card__image");
   const cardHeader = cardElement.querySelector(".card__text");
 
-
   const cardLikeButton = cardElement.querySelector(".card__button-like");
 
   cardLikeButton.addEventListener("click", () => toggleLike(cardLikeButton));
@@ -155,7 +139,7 @@ function handleCardFormSubmit(evt) {
   renderNewCard(createCard(newCard));
   cardAddForm.reset();
   closePopup(cardAddPopup);
-  toggleButtonState(inputEls, submitButton,validationSettings);
+  toggleButtonState(inputEls, submitButton, validationSettings);
 }
 
 cardAddForm.addEventListener("submit", handleCardFormSubmit);
@@ -192,43 +176,34 @@ function openImagePreview(data) {
   openImagePopup();
 }
 
-
-
 function closePopupByEscape(event) {
   if (event.key === "Escape") {
-     // search for an opened popup
+    // search for an opened popup
     const openedPopup = document.querySelector(".popup");
-     // close it
-    closePopup(openedPopup)
+    // close it
+    closePopup(openedPopup);
   }
-} 
-
-
+}
 
 function closePopup(popup) {
-  popup.classList.remove("popup_opened"); 
-  document.removeEventListener("keydown", closePopupByEscape); 
-  popup.removeEventListener("mousedown", closePopupOnRemoteClick)
-
+  popup.classList.remove("popup_opened");
+  document.removeEventListener("keydown", closePopupByEscape);
+  popup.removeEventListener("mousedown", closePopupOnRemoteClick);
 }
 
 function openPopup(popup) {
-  popup.classList.add("popup_opened"); 
-  document.addeEventListener("keydown", closePopupByEscape); 
-  popup.addEventListener("mousedown", closePopupOnRemoteClick)
+  popup.classList.add("popup_opened");
+  popup.addEventListener("mousedown", closePopupOnRemoteClick);
+
 }
-
-
-
-
+document.addeEventListener("keydown", closePopupByEscape);
 
 // create a outside click listener
 function closePopupOnRemoteClick(evt) {
   // target is the element on which the event happened
   // currentTarget is the popup
   // if they are the same then we should close the popup
-  if (evt.target === evt.currentTarget) { 
-    closePopup(evt.target)
+  if (evt.target === evt.currentTarget) {
+    closePopup(evt.target);
   }
 }
-
