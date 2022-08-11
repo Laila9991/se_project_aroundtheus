@@ -129,6 +129,10 @@ function createCard(data) {
 const cardAddForm = document.querySelector("#add-card-form");
 const cardNameInput = document.querySelector(" .popup__name");
 const cardDescriptionInput = document.querySelector(".popup__input_desc");
+cardFormInputs = cardAddForm.querySelectorAll(".form")
+const cardFormSubmitButton = cardAddForm.querySelector(".popup__button");
+
+
 function handleCardFormSubmit(evt) {
   evt.preventDefault();
   const newCard = {
@@ -139,7 +143,7 @@ function handleCardFormSubmit(evt) {
   renderNewCard(createCard(newCard));
   cardAddForm.reset();
   closePopup(cardAddPopup);
-  toggleButtonState(inputEls, submitButton, validationSettings);
+  toggleButtonState(cardAddForm, cardFormSubmitButton, validationSettings);
 }
 
 cardAddForm.addEventListener("submit", handleCardFormSubmit);
@@ -196,7 +200,6 @@ function openPopup(popup) {
   popup.addEventListener("mousedown", closePopupOnRemoteClick);
 
 }
-document.addeEventListener("keydown", closePopupByEscape);
 
 // create a outside click listener
 function closePopupOnRemoteClick(evt) {

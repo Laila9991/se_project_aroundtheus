@@ -65,7 +65,7 @@ function enableValidation(validationSettings) {
   });
 }
 
-const config = {
+const validationSettings = {
   formSelector: ".popup__form",
   inputSelector: ".popup__input",
   submitButtonSelector: ".popup__button",
@@ -74,4 +74,4 @@ const config = {
   errorClass: "popup__error_visible",
 };
 
-enableValidation(config);
+enableValidation(validationSettings);
