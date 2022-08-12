@@ -191,7 +191,6 @@ function closePopupByEscape(event) {
 
 function closePopup(popup) {
   popup.classList.remove("popup_opened");
-  document.removeEventListener("keydown", closePopupByEscape);
   popup.removeEventListener("mousedown", closePopupOnRemoteClick);
 }
 
@@ -200,6 +199,10 @@ function openPopup(popup) {
   popup.addEventListener("mousedown", closePopupOnRemoteClick);
 
 }
+
+document.removeEventListener("keydown", closePopupByEscape);
+document.addEventListener("keydown", closePopupByEscape);
+
 
 // create a outside click listener
 function closePopupOnRemoteClick(evt) {
