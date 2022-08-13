@@ -183,7 +183,8 @@ function openImagePreview(data) {
 function closePopupByEscape(event) {
   if (event.key === "Escape") {
     // search for an opened popup
-    const openedPopup = document.querySelector(".popup");
+    const openedPopup = document.querySelector(".popup_opened"); 
+
     // close it
     closePopup(openedPopup);
   }
