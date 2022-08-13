@@ -190,18 +190,23 @@ function closePopupByEscape(event) {
 }
 
 function closePopup(popup) {
-  popup.classList.remove("popup_opened");
-  popup.removeEventListener("mousedown", closePopupOnRemoteClick);
+  popup.classList.remove("popup_opened"); 
+
+  document.addEventListener("keydown", closePopupByEscape); 
 }
 
 function openPopup(popup) {
   popup.classList.add("popup_opened");
-  popup.addEventListener("mousedown", closePopupOnRemoteClick);
+  popup.addEventListener("mousedown", 
+  closePopupOnRemoteClick);
+  document.addEventListener("keydown", closePopupByEscape); 
 
 }
 
-document.removeEventListener("keydown", closePopupByEscape);
-document.addEventListener("keydown", closePopupByEscape);
+
+
+
+
 
 
 // create a outside click listener
