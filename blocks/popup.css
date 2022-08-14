@@ -58,10 +58,16 @@
   margin-top: 48px;
 }
 
-.popup__button_disabled:hover { 
-opacity: 1;
-cursor: default;
 
+.popup__button:hover {  
+  opacity: 0.8; 
+  cursor: pointer;
+}
+
+
+.popup__button_disabled:hover {  
+  opacity: 1; 
+  cursor: default;
 } 
 
 .popup__description {
