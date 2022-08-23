@@ -1,11 +1,10 @@
-const showInputError = (formEl, inputEl, validationSettings) => {
+
   const { inputErrorClass, errorClass } = validationSettings;
   const errorMessageEl = formEl.querySelector(`#${inputEl.id}-error`);
 
   inputEl.classList.add(inputErrorClass);
   errorMessageEl.textContent = inputEl.validationMessage;
   errorMessageEl.classList.add(errorClass);
-};
 const hideInputError = (formEl, inputEl, validationSettings) => {
   const { inputErrorClass, errorClass } = validationSettings;
   const errorMessageEl = formEl.querySelector(`#${inputEl.id}-error`);
@@ -42,7 +41,7 @@ const toggleButtonState = (inputEls, submitButton, validationSettings) => {
 function setEventlisteners(formEl, validationSettings) {
   const { inputSelector } = validationSettings;
   const inputEls = [...formEl.querySelectorAll(inputSelector)];
-  const submitButton = formEl.querySelector(".popup__button");
+  const submitButton = formEl.querySelector( ".popup__button");
   toggleButtonState(inputEls, submitButton, validationSettings);
 
   inputEls.forEach((inputEl) => {
@@ -75,3 +74,4 @@ const validationSettings = {
 };
 
 enableValidation(validationSettings);
+

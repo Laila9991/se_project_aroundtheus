@@ -1,3 +1,9 @@
+import FormValidator from "./FormValidator.js";
+
+const ESC_KEYCODE= 27;
+
+// cards array
+
 const initialCards = [
   {
     name: "Yosemite Valley ",
@@ -57,6 +63,9 @@ const titleInput = document.querySelector(".popup__input_type_name");
 const descriptonInput = document.querySelector(
   ".popup__input_type_description"
 );
+
+
+
 
 profileEditCloseButtton.addEventListener("click", () => {
   closePopup(profileEditPopup);
@@ -129,7 +138,7 @@ function createCard(data) {
 const cardAddForm = document.querySelector("#add-card-form");
 const cardNameInput = document.querySelector(" .popup__name");
 const cardDescriptionInput = document.querySelector(".popup__input_desc");
-cardFormInputs = cardAddForm.querySelectorAll(".form")
+const cardFormInputs = cardAddForm.querySelectorAll(".form")
 const cardFormSubmitButton = cardAddForm.querySelector(".popup__button");
 
 
@@ -143,7 +152,8 @@ function handleCardFormSubmit(evt) {
   renderNewCard(createCard(newCard));
   cardAddForm.reset();
   closePopup(cardAddPopup);
-  toggleButtonState(cardAddForm, cardFormSubmitButton, validationSettings);
+  addFormValidator.toggleButtonState();
+  
 }
 
 cardAddForm.addEventListener("submit", handleCardFormSubmit);
@@ -219,3 +229,20 @@ function closePopupOnRemoteClick(evt) {
     closePopup(evt.target);
   }
 }
+
+//Validation
+const config= {
+  formSelector: ".popup__form",
+  inputSelector: ".popup__input",
+  submitButtonSelector: ".popup__button",
+  inactiveButtonClass: "popup__button_disabled",
+  inputErrorClass: "popup__input_type_error",
+  errorClass: "popup__error_visible",
+};
+
+
+
+const addFormValidator = new FormValidator(config, "#add-card-form");
+addFormValidator.enableValidation();
+const editFormValidator = new FormValidator(config, "#edit-profile-form");
+editFormValidator.enableValidation();
