@@ -1,4 +1,5 @@
 import FormValidator from "./FormValidator.js";
+import Card from "./card.js";
 
 const ESC_KEYCODE= 27;
 
@@ -99,6 +100,12 @@ const cardTemplate = document
 
 const cards = document.querySelector(".cards");
 
+function createCard(data) {
+  const card = new Card(data, cardSelector, );
+  const cardElement = card.generateCard();
+  return cardElement;
+}
+
 function toggleLike(button) {
   button.classList.toggle("card__button-like_filled");
 }
@@ -150,6 +157,7 @@ function handleCardFormSubmit(evt) {
   };
 
   renderNewCard(createCard(newCard));
+  
   cardAddForm.reset();
   closePopup(cardAddPopup);
   addFormValidator.toggleButtonState();
@@ -157,6 +165,9 @@ function handleCardFormSubmit(evt) {
 }
 
 cardAddForm.addEventListener("submit", handleCardFormSubmit);
+
+
+
 
 function renderNewCard(card) {
   cards.prepend(card);

@@ -69,6 +69,10 @@ class Card{
   
     this._cardTrashButton = cardElement.querySelector(".button_type_trash");
 
+    cardHeader.textContent = this._title;
+    cardImage.src = this._link;
+    cardImage.alt = `A Scenic Photo of ${this._title}`;
+
 
 
     this._setEventListeners();
