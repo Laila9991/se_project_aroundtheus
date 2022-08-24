@@ -1,7 +1,10 @@
+
 import FormValidator from "./FormValidator.js";
 import Card from "./card.js";
 
-const ESC_KEYCODE= 27;
+import  { openPopup, closePopup }  from "./utils.js"
+
+
 
 // cards array
 
@@ -100,14 +103,14 @@ const cardTemplate = document
 
 const cards = document.querySelector(".cards");
 
-function createCard(data) {
+function toggleLike(button) {
+  button.classList.toggle("card__button-like_filled");
+}
+
+function newCard(data) {
   const card = new Card(data, cardSelector, );
   const cardElement = card.generateCard();
   return cardElement;
-}
-
-function toggleLike(button) {
-  button.classList.toggle("card__button-like_filled");
 }
 
 function createCard(data) {
@@ -157,7 +160,6 @@ function handleCardFormSubmit(evt) {
   };
 
   renderNewCard(createCard(newCard));
-  
   cardAddForm.reset();
   closePopup(cardAddPopup);
   addFormValidator.toggleButtonState();
@@ -165,9 +167,6 @@ function handleCardFormSubmit(evt) {
 }
 
 cardAddForm.addEventListener("submit", handleCardFormSubmit);
-
-
-
 
 function renderNewCard(card) {
   cards.prepend(card);
@@ -253,7 +252,12 @@ const config= {
 
 
 
+
 const addFormValidator = new FormValidator(config, "#add-card-form");
 addFormValidator.enableValidation();
+
 const editFormValidator = new FormValidator(config, "#edit-profile-form");
 editFormValidator.enableValidation();
+
+
+

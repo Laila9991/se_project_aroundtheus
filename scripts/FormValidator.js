@@ -52,7 +52,7 @@ export class FormValidator{
 
           };
           
-          _toggleButtonState(){
+          toggleButtonState(){
             const isFormValid = this._checkFormValidity(inputEls);
 
             if (!isFormValid) {
@@ -76,7 +76,7 @@ export class FormValidator{
                 this._inputEls.forEach((element) => {
                   element.addEventListener("input", (e) => {
                     this._checkInputValidity(element);
-                    this.toggleButtonState();
+                    this._toggleButtonState();
                   });
                 });
               }
