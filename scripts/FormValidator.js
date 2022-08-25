@@ -10,6 +10,8 @@ export class FormValidator{
             this._errorClass = settings.errorClass;
             this._form = document.querySelector(formEl);
 
+            this._submitButton = this._form.querySelector(this._submitButtonSelector);
+
 
             this._inputEls = Array.from(
                 this._form.querySelectorAll(this._inputSelector)
@@ -34,7 +36,10 @@ export class FormValidator{
             errorMessageEl.classList.remove(this._errorClass);
           }
 
-
+          _checkFormValidity=() => {
+            return this._inputs.every((input) => input.validity.valid);
+  
+            };
           _checkInputValidity(inputEl){
             if (!inputEl.validity.valid) {
                 this._showInputError( inputEl);
@@ -45,29 +50,27 @@ export class FormValidator{
 
 
           
-
-
-          _checkFormValidity=() => {
-          return this_.inputs.every((input) => input.validity.valid);
-
-          };
+           
+            _checkFormValidity=() => {
+                return this._inputEls.every((input) => input.validity.valid);
+      
+                };
           
+               
           toggleButtonState(){
-            const isFormValid = this._checkFormValidity(inputEls);
+            const isFormValid = this._checkFormValidity(this._inputEls);
 
             if (!isFormValid) {
-                this._submitButton.classList.add(inactiveButtonClass);
+                this._submitButton.classList.add(this._inactiveButtonClass);
                 this._submitButton.disabled = true;
               } else {
-                this._submitButton.classList.remove(inactiveButtonClass);
+                this._submitButton.classList.remove(this._inactiveButtonClass);
                 this._submitButton.disabled = false;
               };
             };
          
             
-            _checkFormValidity = () => {
-                return this._inputEls.every((input) => input.validity.valid);
-              };
+         
             
 
           

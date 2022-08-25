@@ -22,14 +22,18 @@ const toggleInputError = (formEl, inputEl, validationSettings) => {
 };
 
 const checkFormValidity = (inputs) =>
+
   inputs.every((input) => input.validity.valid);
 
 const toggleButtonState = (inputEls, submitButton, validationSettings) => {
+  
   const isFormValid = checkFormValidity(inputEls); // note, that it checks if form is valid
   const { inactiveButtonClass } = validationSettings;
 
 
   if (!isFormValid) {
+
+
     submitButton.classList.add(inactiveButtonClass);
     submitButton.disabled = true;
   } else {
