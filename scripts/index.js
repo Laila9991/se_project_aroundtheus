@@ -1,8 +1,8 @@
 
-import {FormValidator } from "./FormValidator.js";
-import {Card } from "./card.js";
+import FormValidator  from "./FormValidator.js";
+import Card  from "./card.js";
 
-import  { openPopup, closePopup }  from "./utils.js"
+import   PopupWithForm from "./utils.js"
 
 
 
@@ -261,3 +261,8 @@ editFormValidator.enableValidation();
 
 
 
+
+const profilePopup = new PopupWithForm('#edit-popup', handleProfileFormSubmit);
+profilePopup.setEventListeners();
+const cardPopup = new PopupWithForm('#add-popup', handleCardFormSubmit);
+cardPopup.setEventListeners();

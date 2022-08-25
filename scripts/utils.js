@@ -12,7 +12,7 @@ export function closePopup(popup) {
   
   }
   
-  
+
   
   function closePopupByEscape(event) {
     if (event.key === "Escape") {
