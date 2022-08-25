@@ -1,7 +1,7 @@
 
 import FormValidator  from "./FormValidator.js";
 import Card  from "./card.js";
-import { closePopup,openPopup} from "./utils.js";
+import { closePopup, openPopup} from "./utils.js";
 
 
 
@@ -210,19 +210,6 @@ function closePopupByEscape(event) {
   }
 }
 
-function closePopup(popup) {
-  popup.classList.remove("popup_opened"); 
-  document.removeEventListener("keydown", closePopupByEscape); 
-  popup.removeEventListener("mousedown", closePopupOnRemoteClick); 
-}
-
-function openPopup(popup) {
-  popup.classList.add("popup_opened");
-  popup.addEventListener("mousedown", 
-  closePopupOnRemoteClick);
-  document.addEventListener("keydown", closePopupByEscape); 
-
-}
 
 
 

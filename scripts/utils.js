@@ -1,10 +1,10 @@
-export function closePopup(popup) {
+export  function closePopup(popup) {
     popup.classList.remove("popup_opened"); 
     document.removeEventListener("keydown", closePopupByEscape); 
     popup.removeEventListener("mousedown", closePopupOnRemoteClick); 
   }
   
-  export function openPopup(popup) {
+  export  function openPopup(popup) {
     popup.classList.add("popup_opened");
     popup.addEventListener("mousedown", 
     closePopupOnRemoteClick);
@@ -14,7 +14,7 @@ export function closePopup(popup) {
   
 
   
-  function closePopupByEscape(event) {
+ function closePopupByEscape(event) {
     if (event.key === "Escape") {
       // search for an opened popup
       const openedPopup = document.querySelector(".popup_opened"); 
@@ -27,7 +27,7 @@ export function closePopup(popup) {
   
   
   // create a outside click listener
-  function closePopupOnRemoteClick(evt) {
+ function closePopupOnRemoteClick(evt) {
     // target is the element on which the event happened
     // currentTarget is the popup
     // if they are the same then we should close the popup
