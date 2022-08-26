@@ -1,16 +1,16 @@
 class Card{
 
-    constructur(data, cardSelector){
+    constructur(data, cardSelector ){
 
     this.name = data.name;
     this._link = data.link;
-
+ 
 
     this._cardSelector = cardSelector;
 
 
 
-    }
+    };
 
 
 

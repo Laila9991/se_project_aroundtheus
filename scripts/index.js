@@ -1,5 +1,5 @@
 
-import FormValidator  from "./FormValidator.js";
+import {FormValidator}  from "./FormValidator.js";
 import Card  from "./card.js";
 import { closePopup, openPopup} from "./utils.js";
 
@@ -101,49 +101,21 @@ const cardTemplate = document
   .querySelector("#card-template")
   .content.querySelector(".card__content");
 
+
 const cards = document.querySelector(".cards");
 
-function toggleLike(button) {
-  button.classList.toggle("card__button-like_filled");
-}
+initialCards.forEach((element) => renderCard(sectionCard(element)));
+console.log(element.key);
 
-function newCard(data) {
-  const card = new Card(data, cardSelector, );
+
+
+function sectionCard(data) {
+  const card = new Card(data, cardSelector );
   const cardElement = card.generateCard();
   return cardElement;
 }
 
-function createCard(data) {
-  const cardElement = cardTemplate.cloneNode(true);
 
-  const cardElementImage = cardElement.querySelector(".card__image");
-  const cardHeader = cardElement.querySelector(".card__text");
-
-  const cardLikeButton = cardElement.querySelector(".card__button-like");
-
-  cardLikeButton.addEventListener("click", () => toggleLike(cardLikeButton));
-
-  const cardImageButton = cardElement.querySelector(".button_type_image");
-  function openCardImageModal() {
-    openImagePreview(data);
-  }
-
-  const cardTrashButton = cardElement.querySelector(".button_type_trash");
-  function removeCard() {
-    cardElement.remove();
-  }
-
-  cardTrashButton.addEventListener("click", removeCard);
-
-  cardImageButton.addEventListener("click", openCardImageModal);
-
-  const cardTitle = data.name;
-  const cardLink = data.link;
-  cardElementImage.setAttribute("src", cardLink);
-  cardElementImage.setAttribute("alt", `Photo of ${cardTitle}`);
-  cardHeader.textContent = cardTitle;
-  return cardElement;
-}
 
 const cardAddForm = document.querySelector("#add-card-form");
 const cardNameInput = document.querySelector(" .popup__name");
@@ -159,12 +131,16 @@ function handleCardFormSubmit(evt) {
     link: cardDescriptionInput.value,
   };
 
-  renderNewCard(createCard(newCard));
+
+
+  renderNewCard(sectionCard(newCard));
   cardAddForm.reset();
   closePopup(cardAddPopup);
   addFormValidator.toggleButtonState();
   
 }
+
+
 
 cardAddForm.addEventListener("submit", handleCardFormSubmit);
 
@@ -183,7 +159,7 @@ function renderCard(card) {
   cards.append(card);
 }
 
-initialCards.forEach((element) => renderCard(createCard(element)));
+
 
 const imagePopup = document.querySelector("#content__popup");
 const imagePopupBackground = imagePopup.querySelector(".popup__image");
