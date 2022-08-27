@@ -1,6 +1,6 @@
 class Card{
 
-    constructur(data, cardSelector ){
+    constructor(data, cardSelector ){
 
     this.name = data.name;
     this._link = data.link;
@@ -47,10 +47,7 @@ class Card{
 
 
     _getTemplate = () => {
-        return document
-      .querySelector(this._cardSelector)
-      .content.querySelector(".card")
-      .cloneNode(true);
+        return document.querySelector(this._cardSelector).content.cloneNode(true);
       };
 
 
@@ -58,16 +55,16 @@ class Card{
     this._element = this._getTemplate();
 
 
-    const cardElementImage = cardElement.querySelector(".card__image");
-    const cardHeader = cardElement.querySelector(".card__text");
+    const cardImage = this._element.querySelector(".card__image");
+    const cardHeader = this._element.querySelector(".card__text");
   
-    this._cardLikeButton = cardElement.querySelector(".card__button-like");
+    this._cardLikeButton = this._element.querySelector(".card__button-like");
   
   
-    this._cardImageButton = cardElement.querySelector(".button_type_image");
+    this._cardImageButton = this._element.querySelector(".button_type_image");
     
   
-    this._cardTrashButton = cardElement.querySelector(".button_type_trash");
+    this._cardTrashButton = this._element.querySelector(".button_type_trash");
 
     cardHeader.textContent = this._title;
     cardImage.src = this._link;

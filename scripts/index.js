@@ -102,16 +102,15 @@ const cardTemplate = document
   .content.querySelector(".card__content");
 
 
-const cards = document.querySelector(".cards");
+const cards = document.querySelector(".card");
 
 initialCards.forEach((element) => renderCard(sectionCard(element)));
-console.log(element.key);
 
 
-
-function sectionCard(data) {
-  const card = new Card(data, cardSelector );
+function sectionCard(data, ) {
+  const card = new Card(data, "#card-template" );
   const cardElement = card.generateCard();
+  
   return cardElement;
 }
 
