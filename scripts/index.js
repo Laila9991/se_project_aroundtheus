@@ -98,14 +98,14 @@ editBtn.addEventListener("click", openProfile);
 profileEditform.addEventListener("submit", handleProfileFormSubmit);
 
 
-const cards = document.querySelector(".cards");
+const cardList = document.querySelector(".cards");
 
 
  
 
 function cardSection(data) { 
 
-  const card = new Card(data, "#card-template "); 
+  const card = new Card(data, "#card-template" ); 
 
   const cardElement = card.generateCard(); 
 
@@ -115,7 +115,7 @@ function cardSection(data) {
 
 
 
- 
+ initialCards.forEach((element) => renderCard(cardSection(element))); 
 
 
 const cardAddForm = document.querySelector("#add-card-form");
@@ -127,19 +127,21 @@ const cardFormSubmitButton = cardAddForm.querySelector(".popup__button");
 
 function handleCardFormSubmit(evt) {
   evt.preventDefault();
-  const cardSection = {
+  const newObject  = {
     name: cardNameInput.value,
     link: cardDescriptionInput.value,
   };
 
 
-  renderNewCard(cardSection, cards); 
+
+  cardSection(newObject, cardList); 
 
   cardAddForm.reset(); 
 
   closePopup(cardAddPopup); 
 
   addFormValidator.toggleButtonState(); 
+  
 
    
 
@@ -147,12 +149,9 @@ function handleCardFormSubmit(evt) {
 
 
 
-
 cardAddForm.addEventListener("submit", handleCardFormSubmit);
 
-function renderNewCard(card) {
-  cards.prepend(card);
-}
+
 
 const closeButtons = document.querySelectorAll(".popup__close");
 
@@ -162,7 +161,8 @@ closeButtons.forEach((button) => {
 });
 
 function renderCard(card) {
-  cards.append(card);
+const cardList = document.querySelector(".cards");
+cardList.append(card);
 }
 
 
@@ -234,4 +234,4 @@ editFormValidator.enableValidation();
 
  
 
-initialCards.forEach(cards =>renderCard(cards));
+
