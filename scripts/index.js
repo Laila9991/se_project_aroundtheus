@@ -97,23 +97,25 @@ cardAddButton.addEventListener("click", () => {
 editBtn.addEventListener("click", openProfile);
 profileEditform.addEventListener("submit", handleProfileFormSubmit);
 
-const cardTemplate = document
-  .querySelector("#card-template")
-  .content.querySelector(".card__content");
+
+const cards = document.querySelector(".cards");
 
 
-const cards = document.querySelector(".card");
+ 
 
-initialCards.forEach((element) => renderCard(sectionCard(element)));
+function cardSection(data) { 
+
+  const card = new Card(data, "#card-template "); 
+
+  const cardElement = card.generateCard(); 
+
+  return cardElement; 
+
+} 
 
 
-function sectionCard(data, ) {
-  const card = new Card(data, "#card-template" );
-  const cardElement = card.generateCard();
-  
-  return cardElement;
-}
 
+ 
 
 
 const cardAddForm = document.querySelector("#add-card-form");
@@ -125,19 +127,24 @@ const cardFormSubmitButton = cardAddForm.querySelector(".popup__button");
 
 function handleCardFormSubmit(evt) {
   evt.preventDefault();
-  const newCard = {
+  const cardSection = {
     name: cardNameInput.value,
     link: cardDescriptionInput.value,
   };
 
 
+  renderNewCard(cardSection, cards); 
 
-  renderNewCard(sectionCard(newCard));
-  cardAddForm.reset();
-  closePopup(cardAddPopup);
-  addFormValidator.toggleButtonState();
-  
-}
+  cardAddForm.reset(); 
+
+  closePopup(cardAddPopup); 
+
+  addFormValidator.toggleButtonState(); 
+
+   
+
+} 
+
 
 
 
@@ -192,6 +199,7 @@ function closePopupByEscape(event) {
 
 
 
+
 // create a outside click listener
 function closePopupOnRemoteClick(evt) {
   // target is the element on which the event happened
@@ -215,6 +223,7 @@ const config= {
 
 
 
+
 const addFormValidator = new FormValidator(config, "#add-card-form");
 addFormValidator.enableValidation();
 
@@ -223,4 +232,6 @@ editFormValidator.enableValidation();
 
 
 
+ 
 
+initialCards.forEach(cards =>renderCard(cards));

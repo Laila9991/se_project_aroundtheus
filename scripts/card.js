@@ -46,8 +46,13 @@ class Card{
     
 
 
-    _getTemplate = () => {
-        return document.querySelector(this._cardSelector).content.cloneNode(true);
+  
+      _getTemplate = () => {
+       const cardElement= document.querySelector(this._cardSelector)
+          .content.querySelector(".cards")
+          .cloneNode(true);
+          return cardElement;
+
       };
 
 
