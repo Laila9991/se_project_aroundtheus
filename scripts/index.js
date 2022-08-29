@@ -1,10 +1,6 @@
-
-import {FormValidator}  from "./FormValidator.js";
-import Card  from "./card.js";
-import { closePopup, openPopup} from "./utils.js";
-
-
-
+import { FormValidator } from "./FormValidator.js";
+import Card from "./card.js";
+import { closePopup, openPopup, } from "./utils.js";
 
 // cards array
 
@@ -68,9 +64,6 @@ const descriptonInput = document.querySelector(
   ".popup__input_type_description"
 );
 
-
-
-
 profileEditCloseButtton.addEventListener("click", () => {
   closePopup(profileEditPopup);
 });
@@ -97,61 +90,46 @@ cardAddButton.addEventListener("click", () => {
 editBtn.addEventListener("click", openProfile);
 profileEditform.addEventListener("submit", handleProfileFormSubmit);
 
-
 const cardList = document.querySelector(".cards");
 
+function cardSection(data) {
+  const card = new Card(data, "#card-template");
 
- 
+  const cardElement = card.generateCard();
 
-function cardSection(data) { 
-
-  const card = new Card(data, "#card-template" ); 
-
-  const cardElement = card.generateCard(); 
-
-  return cardElement; 
-
-} 
+  return cardElement;
+}
 
 
-
- initialCards.forEach((element) => renderCard(cardSection(element))); 
 
 
 const cardAddForm = document.querySelector("#add-card-form");
 const cardNameInput = document.querySelector(" .popup__name");
 const cardDescriptionInput = document.querySelector(".popup__input_desc");
-const cardFormInputs = cardAddForm.querySelectorAll(".form")
+const cardFormInputs = cardAddForm.querySelectorAll(".form");
 const cardFormSubmitButton = cardAddForm.querySelector(".popup__button");
-
 
 function handleCardFormSubmit(evt) {
   evt.preventDefault();
-  const newObject  = {
+  const newObject = {
     name: cardNameInput.value,
     link: cardDescriptionInput.value,
   };
 
+  cardSection(newObject, cardList);
 
+  cardAddForm.reset();
 
-  cardSection(newObject, cardList); 
+  closePopup(cardAddPopup);
 
-  cardAddForm.reset(); 
+  addFormValidator.toggleButtonState();
 
-  closePopup(cardAddPopup); 
-
-  addFormValidator.toggleButtonState(); 
-  
-
-   
-
-} 
+ 
+}
 
 
 
 cardAddForm.addEventListener("submit", handleCardFormSubmit);
-
-
 
 const closeButtons = document.querySelectorAll(".popup__close");
 
@@ -161,13 +139,11 @@ closeButtons.forEach((button) => {
 });
 
 function renderCard(card) {
-const cardList = document.querySelector(".cards");
-cardList.append(card);
+  const cardList = document.querySelector(".cards");
+  cardList.append(card);
 }
 
-
-
-const imagePopup = document.querySelector("#content__popup");
+/*const imagePopup = document.querySelector("#content__popup");
 const imagePopupBackground = imagePopup.querySelector(".popup__image");
 const imagePopupTitle = imagePopup.querySelector(".popup__header");
 
@@ -180,25 +156,17 @@ function openImagePreview(data) {
   imagePopupBackground.setAttribute("alt", `Photo of ${data.link}`);
   imagePopupBackground.textContent = data.name;
   openImagePopup();
-}
+}*/
 
-function closePopupByEscape(event) {
+/*function closePopupByEscape(event) {
   if (event.key === "Escape") {
     // search for an opened popup
-    const openedPopup = document.querySelector(".popup_opened"); 
+    const openedPopup = document.querySelector(".popup_opened");
 
     // close it
     closePopup(openedPopup);
   }
 }
-
-
-
-
-
-
-
-
 
 // create a outside click listener
 function closePopupOnRemoteClick(evt) {
@@ -208,10 +176,10 @@ function closePopupOnRemoteClick(evt) {
   if (evt.target === evt.currentTarget) {
     closePopup(evt.target);
   }
-}
-
+};*/
 //Validation
-const config= {
+
+const config = {
   formSelector: ".popup__form",
   inputSelector: ".popup__input",
   submitButtonSelector: ".popup__button",
@@ -221,17 +189,10 @@ const config= {
 };
 
 
-
-
-
 const addFormValidator = new FormValidator(config, "#add-card-form");
 addFormValidator.enableValidation();
 
 const editFormValidator = new FormValidator(config, "#edit-profile-form");
 editFormValidator.enableValidation();
-
-
-
- 
-
+initialCards.forEach((element) => renderCard(cardSection(element)));
 

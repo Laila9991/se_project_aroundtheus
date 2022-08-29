@@ -10,7 +10,7 @@ export function openPopup(popup) {
   document.addEventListener("keydown", closePopupByEscape);
 }
 
-function closePopupByEscape(event) {
+export function closePopupByEscape(event) {
   if (event.key === "Escape") {
     // search for an opened popup
     const openedPopup = document.querySelector(".popup_opened");
@@ -21,7 +21,7 @@ function closePopupByEscape(event) {
 }
 
 // create a outside click listener
-function closePopupOnRemoteClick(evt) {
+export function closePopupOnRemoteClick(evt) {
   // target is the element on which the event happened
   // currentTarget is the popup
   // if they are the same then we should close the popup
