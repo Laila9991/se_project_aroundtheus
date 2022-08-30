@@ -1,6 +1,6 @@
 import { FormValidator } from "./FormValidator.js";
 import Card from "./card.js";
-import { closePopup, openPopup } from "./utils.js";
+import { closePopup, openPopup, closePopupByEscape, closePopupOnRemoteClick } from "./utils.js";
 
 // cards array
 
@@ -119,6 +119,8 @@ function handleCardFormSubmit(evt) {
   closePopup(cardAddPopup);
 
   addFormValidator.toggleButtonState();
+
+
 }
 
 cardAddForm.addEventListener("submit", handleCardFormSubmit);
@@ -132,7 +134,7 @@ closeButtons.forEach((button) => {
 
 function renderCard(card) {
   const cardList = document.querySelector(".cards");
-  cardList.append(card);
+  cardList.prepend(card);
 }
 
 /*const imagePopup = document.querySelector("#content__popup");
@@ -186,3 +188,4 @@ addFormValidator.enableValidation();
 const editFormValidator = new FormValidator(config, "#edit-profile-form");
 editFormValidator.enableValidation();
 initialCards.forEach((element) => renderCard(cardSection(element)));
+

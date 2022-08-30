@@ -22,6 +22,7 @@ export function closePopupByEscape(event) {
 
 // create a outside click listener
 export function closePopupOnRemoteClick(evt) {
+
   // target is the element on which the event happened
   // currentTarget is the popup
   // if they are the same then we should close the popup

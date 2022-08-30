@@ -13,6 +13,7 @@ class Card {
     this._cardImageButton = null;
 
     this._cardTrashButton = null;
+
   }
 
   _setEventListeners() {
@@ -32,9 +33,9 @@ class Card {
     );
   }
 
-  _handleLikeIcon = () => {
+  _handleLikeIcon()  {
     this._cardLikeButton.classList.toggle("card__button-like");
-  };
+  }
 
   _handleTrashButton() {
     this._element.remove();
