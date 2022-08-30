@@ -1,6 +1,6 @@
 import { FormValidator } from "./FormValidator.js";
 import Card from "./card.js";
-import { closePopup, openPopup, } from "./utils.js";
+import { closePopup, openPopup } from "./utils.js";
 
 // cards array
 
@@ -100,9 +100,6 @@ function cardSection(data) {
   return cardElement;
 }
 
-
-
-
 const cardAddForm = document.querySelector("#add-card-form");
 const cardNameInput = document.querySelector(" .popup__name");
 const cardDescriptionInput = document.querySelector(".popup__input_desc");
@@ -116,18 +113,13 @@ function handleCardFormSubmit(evt) {
     link: cardDescriptionInput.value,
   };
 
-  cardSection(newObject, cardList);
-
+  renderCard(cardSection(newObject));
   cardAddForm.reset();
 
   closePopup(cardAddPopup);
 
   addFormValidator.toggleButtonState();
-
- 
 }
-
-
 
 cardAddForm.addEventListener("submit", handleCardFormSubmit);
 
@@ -188,11 +180,9 @@ const config = {
   errorClass: "popup__error_visible",
 };
 
-
 const addFormValidator = new FormValidator(config, "#add-card-form");
 addFormValidator.enableValidation();
 
 const editFormValidator = new FormValidator(config, "#edit-profile-form");
 editFormValidator.enableValidation();
 initialCards.forEach((element) => renderCard(cardSection(element)));
-
