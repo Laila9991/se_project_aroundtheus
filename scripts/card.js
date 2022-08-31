@@ -1,6 +1,6 @@
 import { openPopup } from "./utils.js";
 
-class UpperCase {
+class UpperCase{
   constructor(data, cardSelector) {
     this._name = data.name;
     this._link = data.link;
