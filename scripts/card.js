@@ -9,7 +9,7 @@ class Card{
 
     this._cardLikeButton = null;
 
-    this._cardImageButton = null;
+    this._cardImageButto= null;
 
     this._cardTrashButton = null;
   }
