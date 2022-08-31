@@ -54,9 +54,6 @@ export class FormValidator {
     }
   }
 
-
-  
-
   _setEventListeners() {
     this._inputEls.forEach((element) => {
       element.addEventListener("input", (e) => {
@@ -76,5 +73,3 @@ export class FormValidator {
 }
 
 export default FormValidator;
-
-

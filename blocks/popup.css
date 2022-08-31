@@ -130,6 +130,7 @@
 
 .popup__input_type_error {
   border-bottom: 1px solid #ff0000;
+  
 }
 
 .form__input-error {
@@ -143,7 +144,7 @@
   opacity: 0;
 }
 .popup__error_visible {
-  color: black;
+  color:red;
 }
 
 .popup__button_disabled {

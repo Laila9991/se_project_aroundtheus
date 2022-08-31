@@ -92,7 +92,7 @@ profileEditform.addEventListener("submit", handleProfileFormSubmit);
 
 const cardList = document.querySelector(".cards");
 
-function cardSection(data) {
+function createCard(data) {
   const card = new Card(data, "#card-template");
 
   const cardElement = card.generateCard();
@@ -113,7 +113,7 @@ function handleCardFormSubmit(evt) {
     link: cardDescriptionInput.value,
   };
 
-  renderCard(cardSection(newObject));
+  renderCard(createCard(newObject));
   cardAddForm.reset();
 
   closePopup(cardAddPopup);
@@ -133,7 +133,6 @@ closeButtons.forEach((button) => {
 });
 
 function renderCard(card) {
-  const cardList = document.querySelector(".cards");
   cardList.prepend(card);
 }
 
@@ -187,5 +186,5 @@ addFormValidator.enableValidation();
 
 const editFormValidator = new FormValidator(config, "#edit-profile-form");
 editFormValidator.enableValidation();
-initialCards.forEach((element) => renderCard(cardSection(element)));
+initialCards.forEach((element) => renderCard(createCard(element)));
 

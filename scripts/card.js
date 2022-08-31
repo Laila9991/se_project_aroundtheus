@@ -1,7 +1,6 @@
 import { openPopup } from "./utils.js";
 
-
-class Card {
+class UpperCase {
   constructor(data, cardSelector) {
     this._name = data.name;
     this._link = data.link;
@@ -13,7 +12,6 @@ class Card {
     this._cardImageButton = null;
 
     this._cardTrashButton = null;
-
   }
 
   _setEventListeners() {
@@ -33,8 +31,8 @@ class Card {
     );
   }
 
-  _handleLikeIcon()  {
-    this._cardLikeButton.classList.toggle("card__button-like");
+  _handleLikeIcon() {
+    this._cardLikeButton.classList.toggle("card__button-like_filled");
   }
 
   _handleTrashButton() {
@@ -42,16 +40,14 @@ class Card {
     this._element = null;
   }
 
-
-
   _handlePreviewPicture() {
     const imagePopup = document.querySelector("#content__popup");
     const imagePopupBackground = imagePopup.querySelector(".popup__image");
     const imagePopupTitle = imagePopup.querySelector(".popup__header");
 
     imagePopupBackground.src = this._link;
-    imagePopupBackground.alt = `Photo of ${this.link}`;
-    imagePopupBackground.textContent = this.name;
+    imagePopupBackground.alt = `Photo of ${this._link}`;
+    imagePopupTitle.textContent = this._name;
     openPopup(imagePopup);
   }
 
@@ -77,4 +73,4 @@ class Card {
   };
 }
 
-export default Card;
+export default UpperCase;
