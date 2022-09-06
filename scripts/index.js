@@ -35,12 +35,7 @@ const initialCards = [
   },
 ];
 
-/*
- ** Query selectors
- */
-//template
 
-//header
 
 const headerName = document.querySelector(".profile__name");
 const headerDescription = document.querySelector(".profile__description");
