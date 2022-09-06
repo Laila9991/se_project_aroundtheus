@@ -163,6 +163,8 @@ function closePopupOnRemoteClick(evt) {
     closePopup(evt.target);
   }
 };*/
+
+
 //Validation
 
 const config = {
