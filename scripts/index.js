@@ -1,5 +1,5 @@
 import { FormValidator } from "./FormValidator.js";
-import Card from "./Card.js/index.js.js.js.js.js.js.js";
+import Card from "./Card.js"
 import { closePopup, openPopup, 
   closePopupByEscape, closePopupOnRemoteClick } from "./utils.js";
 
@@ -65,9 +65,6 @@ const descriptonInput = document.querySelector(
   ".popup__input_type_description"
 );
 
-profileEditCloseButtton.addEventListener("click", () => {
-  closePopup(profileEditPopup);
-});
 
 function handleProfileFormSubmit(evt) {
   evt.preventDefault();
