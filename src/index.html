@@ -7,13 +7,14 @@
 
     <title>Around The US</title>
 
-    <link rel="stylesheet" href="./pages/index.css" />
+     <!--<link rel="stylesheet" href="./pages/index.css" />-->
   </head>
 
   <body class="page">
     <header class="header">
       <img
-        src="images/icon-logo.svg"
+        src="<%=require('./images/icon-logo.svg')%>" 
+       
         alt="Practicum Logo"
         class="header__logo"
       />
@@ -145,9 +146,9 @@
           </div>
         </li>
       </template>
-      <script type="module" src="./scripts/index.js" defer></script>
-      <script type="module" src="./scripts/utils.js" defer></script>
-      <script type="module" src="./scripts/Card.js" defer></script>
+        <script src="./scripts/index.js" defer></script>
+       <!--<script type="module" src="./scripts/utils.js" defer></script>--> 
+     <!-- <script type="module" src="./scripts/Card.js" defer></script>-->
     </ul>
     <footer class="footer">
       <p class="footer__copyright">&#169; 2022 Around The U.S.</p>
