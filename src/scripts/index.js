@@ -1,4 +1,4 @@
- import "../pages/index.css";
+import "../pages/index.css";
 
 
 import { FormValidator } from "./FormValidator.js";
@@ -135,11 +135,9 @@ function renderCard(card) {
 /*const imagePopup = document.querySelector("#content__popup");
 const imagePopupBackground = imagePopup.querySelector(".popup__image");
 const imagePopupTitle = imagePopup.querySelector(".popup__header");
-
 function openImagePopup() {
   openPopup(imagePopup);
 }
-
 function openImagePreview(data) {
   imagePopupBackground.setAttribute("src", data.link);
   imagePopupBackground.setAttribute("alt", `Photo of ${data.link}`);
@@ -151,12 +149,10 @@ function openImagePreview(data) {
   if (event.key === "Escape") {
     // search for an opened popup
     const openedPopup = document.querySelector(".popup_opened");
-
     // close it
     closePopup(openedPopup);
   }
 }
-
 // create a outside click listener
 function closePopupOnRemoteClick(evt) {
   // target is the element on which the event happened
@@ -185,4 +181,3 @@ addFormValidator.enableValidation();
 const editFormValidator = new FormValidator(config, "#edit-profile-form");
 editFormValidator.enableValidation();
 initialCards.forEach((element) => renderCard(createCard(element)));
-
