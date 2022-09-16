@@ -1,9 +1,11 @@
 import { openPopup } from "./utils.js";
 
 class Card{
-  constructor(data, cardSelector) {
+  constructor(data, cardSelector, handleCardClick) {
     this._name = data.name;
     this._link = data.link;
+
+    this.handleCardClick = handleCardClick; 
 
     this._cardSelector = cardSelector;
 

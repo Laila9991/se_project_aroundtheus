@@ -30,3 +30,4 @@ export function closePopupOnRemoteClick(evt) {
     closePopup(evt.target);
   }
 }
+
