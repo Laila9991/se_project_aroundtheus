@@ -8,9 +8,6 @@ import PopupWithForm from "../components/popup-with-form.js";
 import PopupWithImage from "../components/popup-with-image.js";
 import  UserInfo  from "../components/userInfor.js";
 
-
-
-
 // cards array
 
 const initialCards = [
