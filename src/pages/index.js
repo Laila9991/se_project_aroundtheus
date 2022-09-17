@@ -4,8 +4,8 @@ import "../pages/index.css";
 import { FormValidator } from "../components/FormValidator.js";
 import Card from "../components/Card.js";
 import Section from "../components/section.js";
-import PopupWithForm from "../components/popup-with-form.js";
-import PopupWithImage from "../components/popup-with-image.js";
+import PopupWithForm from "../components/PopupWithForm.js";
+import PopupWithImage from "../components/PopupWithImage.js";
 import  UserInfo  from "../components/userInfor.js";
 
 // cards array

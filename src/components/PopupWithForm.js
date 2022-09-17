@@ -1,6 +1,6 @@
-import { Popup } from "../components/popup";
+import { Popup } from "./popup";
 
-export class PopupWithForm extends Popup {
+export class PopupWithImage extends Popup {
     constructor(popupSelector, handleFormSubmit) {
       super(popupSelector);
 
@@ -23,4 +23,5 @@ export class PopupWithForm extends Popup {
 
     setEventListeners() {
       super.setEventListeners();
-      this._form.addEventListener("submit", () => this._handleFormSubmit());
+      this._form.addEventListener("submit", () => this._handleFormSubmit());     }
+      }
