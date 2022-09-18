@@ -1,97 +1,88 @@
 import "../pages/index.css";
 
-
 import { FormValidator } from "../components/FormValidator.js";
 import Card from "../components/Card.js";
 import Section from "../components/section.js";
-import PopupWithForm from "../components/PopupWithForm.js";
-import PopupWithImage from "../components/PopupWithImage.js";
-import  UserInfo  from "../components/userInfor.js";
 
-// cards array
+import { PopupWithImage } from "../components/PopupWithImage.js";
+import { PopupWithForm } from "../components/PopupWithForm.js";
+import {
+  initialCards,
+  editBtn,
 
-const initialCards = [
+  cardAddButton,
+  headerName,
+
+  headerDescription,
+  titleInput,
+  descriptonInput,
+  cardFormInputs,
+  cardNameInput,
+  cardForm,
+  config,
+  selectors,
+} from "../utils/constants.js";
+
+
+
+
+const createCard = (cardObject) => {
+  const card = new Card(
+    {
+      data: cardObject,
+      handleCardPopup: (Data) => {
+        imagePopup.open(Data);
+      },
+    },
+    selectors.cardTemplate
+  );
+  return card.generateCard();
+};
+
+const imagePopup = new PopupWithImage(selectors.imagePopup);
+imagePopup.setEventListeners();
+
+const cardSection = new Section(
   {
-    name: "Yosemite Valley ",
-    link: "https://code.s3.yandex.net/web-code/yosemite.jpg ",
+    items: initialCards,
+    renderer: (data) => {
+      const cardEl = createCard(data);
+      cardSection.addItem(cardEl);
+    },
   },
+  ".cards"
+);
 
-  {
-    name: "Lake Louise ",
-    link: "https://code.s3.yandex.net/web-code/lake-louise.jpg  ",
-  },
-  {
-    name: "Bald Mountains ",
-    link: "https://code.s3.yandex.net/web-code/bald-mountains.jpg ",
-  },
-  {
-    name: "Latemar ",
-    link: "https://code.s3.yandex.net/web-code/latemar.jpg ",
-  },
+cardSection.renderItems();
 
-  {
-    name: "Vanoise National Park ",
-    link: " https://code.s3.yandex.net/web-code/vanoise.jpg ",
-  },
-
-  {
-    name: "Lago di Braies ",
-    link: "https://code.s3.yandex.net/web-code/lago.jpg  ",
-  },
-];
-
-
-
-const popupImage = new PopupWithImage('#content__popup');
-popupImage.setEventListeners();
-
-const CardSection = new Section({
-  items: initialCards,
-  renderer: (item) => {
-    const handleCardClick = () => {popupImage.open(item)};
-    const cardEl = new Card(item, "#card-template", handlePreviewPicture() );
-
-
-    CardSection.addItem(cardEl.generateCard());
-  }
-}, ".cards");
-
-CardSection.renderItems();
-
-
-
-const addNewCard = new PopupWithForm("#add-popup", () => {
-  const newCard = { name: cardNameInput.value, link: cardDescriptionInput.value };
-  const handlePreviewPicture = () => {popupImage.open(newCard);}
-  const newCardEl = new Card(newCard, "#card-template", handlePreviewPicture());
-  CardSection.addNewItem(newCardEl.generateCard());
-  addNewCard.close();
+const addForm = new PopupWithForm(selectors.cardPopup, (data) => {
+  const newCard = { name: data.place, link: data.link };
+  const newCardEl = createCard(newCard);
+  cardSection.addNewItem(newCardEl);
+  addForm.close();
 });
-addNewCard.setEventListeners();
 
-cardAddButton.addEventListener("click", () => addNewCard.open());
+addForm.setEventListeners();
 
+cardAddButton.addEventListener("click", () => addForm.open());
+const addFormValidator = new FormValidator(config, selectors.cardForm);
+addFormValidator.enableValidation();
 
-const addValidator = new FormValidator(config, "#add-card-form");
-addValidator.enableValidation();
+const userInfo = new UserInfo(selectors);
 
-
-
-const profileForm = new PopupWithForm("#edit-popup", () => {
-  titleInput.value = headerName.textContent;
-  descriptonInput.value = headerDescription.textContent;
+const profileForm = new PopupWithForm(selectors.profilePopup, (data) => {
+  headerName.textContent = data.profile;
+  headerDescription.textContent = data.desc;
   profileForm.close();
- profileForm.setEventListeners();
-})
-editBtn.addEventListener("click", () => profileForm.open());
+});
 
+profileForm.setEventListeners();
 
+editBtn.addEventListener("click", () => {
+  const { userName, userJob } = userInfo.getUserInfo();
+  userInfo.setUserInfo({ userName, userJob });
+  profileForm.open();
+});
 
-const editValidator = new FormValidator(config, "#edit-profile-form");
-editValidator.enableValidation();
-
-
-
-
-
-
+const editFormValidator = new FormValidator(config, selectors.profileForm);
+editFormValidator.enableValidation();

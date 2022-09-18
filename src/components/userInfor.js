@@ -1,18 +1,20 @@
-import { headerName, headerDescription } from "../utils/constants.js";
+import { titleInput, descriptonInput } from "../utils/constants.js";
 
-export default class UserInfo {
-  constructor({ personsName, personsJob }) {
-    this._personsName = personsName;
-    this._personsJob = personsJob;
+
+export class UserInfo {
+  constructor({ userNameSelector, userJobSelector }) {
+    this._nameElement = document.querySelector(userNameSelector);
+    this._jobElement = document.querySelector(userJobSelector);
   }
 
   getUserInfo() {
-    return { personsName: headerName.textContent, personsJob: headerDescription.textContent };
+    return {
+      userName: this._nameElement.textContent,
+      userJob: this._jobElement.textContent };
   }
 
-  setUserInfo() {
-    headerName.textContent = this._personsName;
-    headerDescription.textContent = this._personsJob;
+  setUserInfo({userName, userJob}) {
+    titleInput.value = userName;
+    descriptonInput.value = userJob;
   }
 }
-
