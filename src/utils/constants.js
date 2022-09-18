@@ -5,7 +5,7 @@ export const headerDescription = document.querySelector(".profile__description")
 
 export const editBtn = document.querySelector(".profile__button-edit");
 const profileEditPopup = document.querySelector("#edit-popup");
-const profileEditCloseButtton = profileEditPopup.querySelector(".popup__close");
+export const profileEditCloseButtton = profileEditPopup.querySelector(".popup__close");
 const profileEditform = document.querySelector("#edit-popup");
 
 const subtitleBtn = document.querySelector(".popup__button");

@@ -1,7 +1,7 @@
 export default class Popup {
   constructor(popupSelector) {
     this._popup = document.querySelector(popupSelector);
-    this._closeButton = this._popup.querySelector(".button_type_close");
+    this._closeButton = this._popup.querySelector(".popup__close");
   }
 
   open() {
@@ -19,7 +19,7 @@ export default class Popup {
       this.close();
     }
   }
-  _closeModalOnRemoteClick(evt) {
+  _closePopupOnRemoteClick(evt) {
     const openedModal = document.querySelector(".popup_opened");
     if (openedModal === null) {return;}
     if (evt.target === openedModal) {
@@ -31,3 +31,4 @@ export default class Popup {
     this._popup.addEventListener("mousedown", (evt) => this._closePopupOnRemoteClick(evt));
   }
 }
+
