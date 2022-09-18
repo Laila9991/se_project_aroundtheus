@@ -79,8 +79,8 @@ export const config = {
 
 
 export const selectors = {
-  cardPopup: "#add-popupl",
-  imagePopup: "#content_popup",
+ 
+  imagePopup: "#content__popup",
   cardForm: "#add-card-form",
   profilePopup: "#edit-popup",
   profileForm: "#edit-profile-form",
