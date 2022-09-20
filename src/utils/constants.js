@@ -78,6 +78,7 @@ export const config = {
 };
 
 export const escapeKeyCode = 27;
+
 export const selectors = {
  
   imagePopup: "#content__popup",

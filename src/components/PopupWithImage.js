@@ -7,13 +7,14 @@ export class PopupWithImage extends popup {
         this._imageElement = this._popup.querySelector(".popup__image");
         this._imageCaption = this._popup.querySelector(".popup__header");
       }
-      open(data){
+    
+      open(data) {
+        this._imageElement.src = data.link;
+        this._imageElement.alt = `A full size view of ${data.name}`;
+        this._imageCaption.textContent = data.name;
         super.open();
-        this._imagePopupBackground.src = data.link;
-        this._imagePopupBackground.alt = `Photo of ${data_link}`;
-        this._imagePopupTitle.textContent = data.name;
-        super.open();
-  
+      }
     }
 
- }
+ 
+
