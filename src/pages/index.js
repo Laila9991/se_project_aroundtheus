@@ -2,7 +2,7 @@ import "../pages/index.css";
 import {UserInfo} from "../components/userInfor.js";
 import { FormValidator } from "../components/FormValidator.js";
 import Card from "../components/Card.js";
-import Section from "../components/section.js";
+import {Section} from "../components/section.js";
 
 import { PopupWithImage } from "../components/PopupWithImage.js";
 import { PopupWithForm } from "../components/PopupWithForm.js";
@@ -55,7 +55,7 @@ const cardSection = new Section(
 
 cardSection.renderItems();
 
-const addForm = new PopupWithForm(selectors.cardPopup, (data) => {
+const addForm = new PopupWithForm("#add-popup", (data) => {
   const newCard = { name: data.place, link: data.link };
   const newCardEl = createCard(newCard);
   cardSection.addNewItem(newCardEl);

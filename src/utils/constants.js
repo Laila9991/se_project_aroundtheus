@@ -4,25 +4,25 @@ export const headerName = document.querySelector(".profile__name");
 export const headerDescription = document.querySelector(".profile__description");
 
 export const editBtn = document.querySelector(".profile__button-edit");
-const profileEditPopup = document.querySelector("#edit-popup");
+export const profileEditPopup = document.querySelector("#edit-popup");
 export const profileEditCloseButtton = profileEditPopup.querySelector(".popup__close");
-const profileEditform = document.querySelector("#edit-popup");
+export const profileEditform = document.querySelector("#edit-popup");
 
 const subtitleBtn = document.querySelector(".popup__button");
 
-const cardAddPopup = document.querySelector("#add-popup");
+ const cardAddPopup = document.querySelector("#add-popup");
 
 export const cardAddButton = document.querySelector("#add-button");
 
 //form
 const profileForm = document.querySelector(".popup__form");
 
-const titleInput = document.querySelector(".popup__input_type_name");
+export const titleInput = document.querySelector(".popup__input_type_name");
 
-const descriptonInput = document.querySelector(
+export const descriptonInput = document.querySelector(
   ".popup__input_type_description"
 );
-const closeButtons = document.querySelectorAll(".popup__close");
+export const closeButtons = document.querySelectorAll(".popup__close");
 
 const popup = document.querySelector("#content__popup");
 const popupImage = popup.querySelector(".popup__image");
@@ -77,7 +77,7 @@ export const config = {
   errorClass: "popup__error_visible",
 };
 
-
+export const escapeKeyCode = 27;
 export const selectors = {
  
   imagePopup: "#content__popup",
@@ -91,7 +91,8 @@ export const selectors = {
 
 export {
  
- 
+  profile,
+  
   cardAddForm,
   cardAddPopup,
   cardDescriptionInput,

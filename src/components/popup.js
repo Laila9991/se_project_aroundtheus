@@ -1,3 +1,5 @@
+import { escapeKeyCode } from "../utils/constants.js";
+
 export default class Popup {
   constructor(popupSelector) {
     this._popup = document.querySelector(popupSelector);
@@ -15,17 +17,16 @@ export default class Popup {
   }
 
   _handleEscClose = (evt) => {
-    if (evt.keyCode === Escape) {
+    if (evt.keyCode === escapeKeyCode) {
       this.close();
     }
   }
-  _closePopupOnRemoteClick(evt) {
-    const openedModal = document.querySelector(".popup_opened");
-    if (openedModal === null) {return;}
-    if (evt.target === openedModal) {
+  _closePopupOnRemoteClick (evt) {
+    if (evt.target === this._popup) {
       this.close();
     };
   }
+
   setEventListeners() {
     this._closeButton.addEventListener("click", () => this.close());
     this._popup.addEventListener("mousedown", (evt) => this._closePopupOnRemoteClick(evt));
