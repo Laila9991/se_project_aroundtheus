@@ -1,5 +1,5 @@
 import "../pages/index.css";
-import {UserInfo} from "../components/userInfor.js";
+import {UserInfo} from "../components/UserInfo.js";
 import { FormValidator } from "../components/FormValidator.js";
 import Card from "../components/Card.js";
 import {Section} from "../components/section.js";
@@ -13,7 +13,7 @@ import {
   cardAddButton,
   headerName,
   
-  headerDescription,
+ headerDescription,
   titleInput,
   descriptonInput,
   cardFormInputs,
@@ -30,8 +30,8 @@ const createCard = (cardObject) => {
   const card = new Card(
     {
       data: cardObject,
-      handleCardPopup: (Data) => {
-        imagePopup.open(Data);
+      handleCardPopup: (imgData) => {
+        imagePopup.open(imgData);
       },
     },
     selectors.cardTemplate
@@ -54,6 +54,7 @@ const cardSection = new Section(
 );
 
 cardSection.renderItems();
+
 
 const addForm = new PopupWithForm("#add-popup", (data) => {
   const newCard = { name: data.place, link: data.link };

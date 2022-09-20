@@ -21,15 +21,15 @@ export default class Popup {
       this.close();
     }
   }
-  _closePopupOnRemoteClick (evt) {
-    if (evt.target === this._popup) {
+  _closePopupOnRemoteClick(evt) {
+    const openedModal = document.querySelector(".popup_opened");
+    if (openedModal === null) {return;}
+    if (evt.target === openedModal) {
       this.close();
     };
   }
-
   setEventListeners() {
     this._closeButton.addEventListener("click", () => this.close());
     this._popup.addEventListener("mousedown", (evt) => this._closePopupOnRemoteClick(evt));
   }
 }
-

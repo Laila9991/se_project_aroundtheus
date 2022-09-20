@@ -1,9 +1,8 @@
-
+import { headerName, headerDescription } from "../utils/constants";
 export class UserInfo {
-  constructor({ userNameSelector, userJobSelector, userImageSelector }) {
+  constructor({ userNameSelector, userJobSelector }) {
     this._nameElement = document.querySelector(userNameSelector);
     this._jobElement = document.querySelector(userJobSelector);
-    this._imageElement = document.querySelector(userImageSelector);
   }
 
   getUserInfo() {
@@ -13,11 +12,7 @@ export class UserInfo {
   }
 
   setUserInfo({userName, userJob}) {
-    this._nameElement.textContent = userName;
-    this._jobElement.textContent = userJob;
-  }
-
-  setUserImage({userImage}) {
-    this._imageElement.src = userImage;
+    headerName.value = userName;
+    headerDescription.value = userJob;
   }
 }
