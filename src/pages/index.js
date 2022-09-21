@@ -72,8 +72,8 @@ addFormValidator.enableValidation();
 const userInfo = new UserInfo(selectors);
 
 const profileForm = new PopupWithForm(selectors.profilePopup, (data) => {
-  headerName.textContent = data.profile;
-  headerDescription.textContent = data.desc;
+  headerName.textContent = data.name;
+  headerDescription.textContent = data.description;
   profileForm.close();
 });
 

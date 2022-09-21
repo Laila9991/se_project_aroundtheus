@@ -56,7 +56,7 @@ export class Card {
 
     this._cardImageButton = this._element.querySelector(".button_type_image");
     this._cardImageButton.addEventListener("click", () =>
-      this._handleCardPopup()
+      this._handleCardPopup(this._data)
     );
 
     this._cardLikeButton = this._element.querySelector(".card__button-like");
