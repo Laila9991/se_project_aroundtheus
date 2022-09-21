@@ -1,5 +1,3 @@
-//import { openPopup } from "./utils.js";
-
 export class Card {
   constructor({data, handleCardPopup}, cardSelector) {
     this._data = data;
@@ -9,21 +7,15 @@ export class Card {
     this._handleCardPopup = handleCardPopup;
   }
  
-
   _getTemplate = () => {
     return document
       .querySelector(this._cardSelector)
       .content.querySelector(".card__content")
       .cloneNode(true);
   };
-
-
   generateCard = () => {
     this._element = this._getTemplate();
     this._setEventListeners();
-
-
-
     const cardTitle = this._element.querySelector(".card__text");
     const cardImage = this._element.querySelector(".card__image");
     this._cardLikeButton = this._element.querySelector(".card__button-like");
@@ -38,23 +30,16 @@ export class Card {
 
   _handleLikeIcon = () => {
     this._cardLikeButton.classList.toggle("card__button-like_filled");
-
   }
-
-
 
   _handleTrashButton() {
     this._element.remove();
     this._element = null;
   }
-
-
-
-
   _setEventListeners() {
     this._cardTrashButton = this._element.querySelector(".button_type_trash");
     this._cardTrashButton.addEventListener("click", () =>
-      this._handleTrashButton(this._data)
+      this._handleTrashButton()
     );
 
     this._cardImageButton = this._element.querySelector(".button_type_image");
@@ -64,14 +49,10 @@ export class Card {
 
     this._cardLikeButton = this._element.querySelector(".card__button-like");
     this._cardLikeButton.addEventListener("click", () =>
-      this._handleLikeIcon(this._data)
+      this._handleLikeIcon()
     );
   }
 
-
  
-
-
 }
-
 export default Card;
