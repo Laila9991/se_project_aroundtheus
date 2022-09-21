@@ -38,7 +38,10 @@ export class Card {
 
   _handleLikeIcon = () => {
     this._cardLikeButton.classList.toggle("card__button-like_filled");
+
   }
+
+
 
   _handleTrashButton() {
     this._element.remove();
@@ -51,7 +54,7 @@ export class Card {
   _setEventListeners() {
     this._cardTrashButton = this._element.querySelector(".button_type_trash");
     this._cardTrashButton.addEventListener("click", () =>
-      this._handleTrashButton()
+      this._handleTrashButton(this._data)
     );
 
     this._cardImageButton = this._element.querySelector(".button_type_image");
@@ -61,7 +64,7 @@ export class Card {
 
     this._cardLikeButton = this._element.querySelector(".card__button-like");
     this._cardLikeButton.addEventListener("click", () =>
-      this._handleLikeIcon()
+      this._handleLikeIcon(this._data)
     );
   }
 
