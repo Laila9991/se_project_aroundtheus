@@ -14,11 +14,6 @@ import {
   headerName,
   
  headerDescription,
-  titleInput,
-  descriptonInput,
-  cardFormInputs,
-  cardNameInput,
-  cardForm,
   config,
   selectors,
 } from "../utils/constants.js";
@@ -39,8 +34,21 @@ const createCard = (cardObject) => {
   return card.generateCard();
 };
 
+
+
+
+function fillProfileForm() {
+  const { userName,  userJob } = 
+  UserInfo.getUserInfo();
+  headerName.value = userName; 
+  headerDescription.value = userJob; 
+}
+
+
+
 const imagePopup = new PopupWithImage(selectors.imagePopup);
 imagePopup.setEventListeners();
+
 
 const cardSection = new Section(
   {
@@ -57,7 +65,7 @@ cardSection.renderItems();
 
 
 const addForm = new PopupWithForm("#add-popup", (data) => {
-  const newCard = { name: data.place, link: data.link };
+  const newCard = { name: data.title, link: data[""] };
   const newCardEl = createCard(newCard);
   cardSection.addNewItem(newCardEl);
   addForm.close();
@@ -65,25 +73,35 @@ const addForm = new PopupWithForm("#add-popup", (data) => {
 
 addForm.setEventListeners();
 
-cardAddButton.addEventListener("click", () => addForm.open());
+//toggleButtonState
+cardAddButton.addEventListener("click", () => {
+  addFormValidator.toggleButtonState();
+  addForm.open();
+   });
+
+
 const addFormValidator = new FormValidator(config, selectors.cardForm);
 addFormValidator.enableValidation();
 
 const userInfo = new UserInfo(selectors);
 
+
+// corektur 
 const profileForm = new PopupWithForm(selectors.profilePopup, (data) => {
-  headerName.textContent = data.name;
-  headerDescription.textContent = data.description;
+  userInfo.setUserInfo({
+    userName: data.name,
+    userJob: data.description
+  });
   profileForm.close();
 });
 
 profileForm.setEventListeners();
 
 editBtn.addEventListener("click", () => {
-  const { userName, userJob } = userInfo.getUserInfo();
-  userInfo.setUserInfo({ userName, userJob });
+  fillProfileForm();
   profileForm.open();
 });
+
 
 const editFormValidator = new FormValidator(config, selectors.profileForm);
 editFormValidator.enableValidation();

@@ -15,4 +15,4 @@ export class UserInfo {
     headerName.value = userName;
     headerDescription.value = userJob;
   }
-}
+   }
