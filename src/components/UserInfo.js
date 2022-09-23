@@ -12,7 +12,7 @@ export class UserInfo {
   }
 
   setUserInfo({userName, userJob}) {
-    this._nameElement.value = userName;
-    this._jobElement.value = userJob;
+    this._nameElement.textContent = userName;
+    this._jobElement.textContent = userJob;
   }
    }
