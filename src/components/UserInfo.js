@@ -12,7 +12,7 @@ export class UserInfo {
   }
 
   setUserInfo({userName, userJob}) {
-    headerName.value = userName;
-    headerDescription.value = userJob;
+    this._nameElement.value = userName;
+    this._jobElement.value = userJob;
   }
    }

@@ -27,14 +27,7 @@ export class FormValidator {
     errorMessageEl.classList.remove(this._errorClass);
   }
 
- 
-  _toggleInputError(inputEl) {
-    if (!inputEl.validity.valid) {
-      this._showInputError(inputEl);
-    } else {
-      this._hideInputError(inputEl);
-    }
-  }
+
 
   _checkFormValidity = () => {
     return this._inputEls.every((input) => input.validity.valid);

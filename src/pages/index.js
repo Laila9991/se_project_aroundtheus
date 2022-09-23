@@ -39,10 +39,10 @@ const createCard = (cardObject) => {
 
 function fillProfileForm() {
   const { userName,  userJob } = 
-  UserInfo.getUserInfo();
+  userInfo.getUserInfo();
   headerName.value = userName; 
   headerDescription.value = userJob; 
-}
+};
 
 
 
@@ -93,6 +93,7 @@ const profileForm = new PopupWithForm(selectors.profilePopup, (data) => {
     userJob: data.description
   });
   profileForm.close();
+
 });
 
 profileForm.setEventListeners();
