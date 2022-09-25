@@ -33,6 +33,9 @@ const cardNameInput = document.querySelector(" .popup__name");
 const cardDescriptionInput = document.querySelector(".popup__input_desc");
 const cardFormInputs = cardAddForm.querySelectorAll(".form");
 const cardFormSubmitButton = cardAddForm.querySelector(".popup__button");
+const addCardButton = document.querySelector(".profile__add-button");
+
+
 
 //card List
 const cardList = document.querySelector(".cards");
@@ -93,7 +96,7 @@ export const selectors = {
 export {
  
   profile,
-  
+  addCardButton,
   cardAddForm,
   cardAddPopup,
   cardDescriptionInput,

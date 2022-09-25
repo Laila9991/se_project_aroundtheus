@@ -16,6 +16,7 @@ import {
  headerDescription,
   config,
   selectors,
+  addCardButton,
 } from "../utils/constants.js";
 
 
@@ -74,10 +75,11 @@ const addForm = new PopupWithForm("#add-popup", (data) => {
 addForm.setEventListeners();
 
 //toggleButtonState
-cardAddButton.addEventListener("click", () => {
+addCardButton.addEventListener("click", () => {
   addFormValidator.toggleButtonState();
   addForm.open();
    });
+   console.log(addCardButton);
 
 
 const addFormValidator = new FormValidator(config, selectors.cardForm);
