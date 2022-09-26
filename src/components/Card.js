@@ -15,15 +15,18 @@ export class Card {
   };
   generateCard = () => {
     this._element = this._getTemplate();
-    this._setEventListeners();
+  
     const cardTitle = this._element.querySelector(".card__text");
     const cardImage = this._element.querySelector(".card__image");
     this._cardLikeButton = this._element.querySelector(".card__button-like");
     this._cardTrashButton = this._element.querySelector(".button_type_trash");
     this._cardImageButton = this._element.querySelector(".button_type_image");
+
     cardTitle.textContent = this._title;
     cardImage.src = this._link;
     cardImage.alt = `A Scenic Photo of ${this._title}`;
+    this._setEventListeners();
+
     return this._element;
   };
 
@@ -36,17 +39,16 @@ export class Card {
     this._element = null;
   }
   _setEventListeners() {
-    this._cardTrashButton = this._element.querySelector(".button_type_trash");
+  
     this._cardTrashButton.addEventListener("click", () =>
       this._handleTrashButton()
     );
 
-    this._cardImageButton = this._element.querySelector(".button_type_image");
     this._cardImageButton.addEventListener("click", () =>
       this._handleCardPopup(this._data)
     );
 
-    this._cardLikeButton = this._element.querySelector(".card__button-like");
+
     this._cardLikeButton.addEventListener("click", () =>
       this._handleLikeIcon()
     );

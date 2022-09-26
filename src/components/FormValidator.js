@@ -33,6 +33,10 @@ export class FormValidator {
     return this._inputEls.every((input) => input.validity.valid);
   };
 
+
+
+
+
   _toggleInputError(inputElement) {
     if (!inputElement.validity.valid) {
       this._showInputError(inputElement);
@@ -51,7 +55,13 @@ export class FormValidator {
       this._submitButton.disabled = false;
     }
   }
+  resetValidation() {
+    this.toggleButtonState();
 
+    this._inputEls.forEach((inputElement) => {
+      this._hideInputError(inputElement);
+    })
+  }
 
   _setEventListeners() {
     this._inputEls.forEach((element) => {

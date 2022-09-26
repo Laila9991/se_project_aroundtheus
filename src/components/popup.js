@@ -22,9 +22,7 @@ export default class Popup {
     }
   }
   _closePopupOnRemoteClick(evt) {
-    const openedModal = document.querySelector(".popup_opened");
-    if (openedModal === null) {return;}
-    if (evt.target === openedModal) {
+    if (evt.target === this._popup) {
       this.close();
     };
   }

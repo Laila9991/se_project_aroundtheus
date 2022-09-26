@@ -1,4 +1,4 @@
-import { headerName, headerDescription } from "../utils/constants";
+
 export class UserInfo {
   constructor({ userNameSelector, userJobSelector }) {
     this._nameElement = document.querySelector(userNameSelector);

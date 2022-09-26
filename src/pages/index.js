@@ -66,7 +66,7 @@ cardSection.renderItems();
 
 
 const addForm = new PopupWithForm("#add-popup", (data) => {
-  const newCard = { name: data.title, link: data[""] };
+  const newCard = { name: data.title, link: data.link };
   const newCardEl = createCard(newCard);
   cardSection.addNewItem(newCardEl);
   addForm.close();
