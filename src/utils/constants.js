@@ -1,6 +1,5 @@
 const profile = document.querySelector(".profile");
-const profileNameInput = profileForm.querySelector(".popup__input_type_name")
-const profileDescInput = profileForm.querySelector(".popup__input_type_description")
+
 
 
 export const headerName = document.querySelector(".profile__name");
@@ -11,6 +10,7 @@ export const profileEditPopup = document.querySelector("#edit-popup");
 export const profileEditCloseButtton = profileEditPopup.querySelector(".popup__close");
 export const profileEditform = document.querySelector("#edit-popup");
 
+
 const subtitleBtn = document.querySelector(".popup__button");
 
  const cardAddPopup = document.querySelector("#add-popup");
@@ -18,7 +18,9 @@ const subtitleBtn = document.querySelector(".popup__button");
 export const cardAddButton = document.querySelector("#add-button");
 
 //form
-const profileForm = document.querySelector(".popup__form");
+const profileForm = document.querySelector("#edit-profile-form");
+const profileNameInput = profileForm.querySelector(".popup__input_type_name")
+const profileDescInput = profileForm.querySelector(".popup__input_type_description")
 
 export const titleInput = document.querySelector(".popup__input_type_name");
 
