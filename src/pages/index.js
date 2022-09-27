@@ -11,9 +11,10 @@ import {
   editBtn,
 
   cardAddButton,
-  headerName,
-  
- headerDescription,
+
+  profileNameInput,
+  profileDescInput,
+
   config,
   selectors,
   addCardButton,
@@ -38,14 +39,13 @@ const createCard = (cardObject) => {
 
 
 
+
 function fillProfileForm() {
-  const { userName,  userJob } = 
-  userInfo.getUserInfo();
-  headerName.value = userName; 
-  headerDescription.value = userJob; 
-};
+  const { userName,  userJob } = userInfo.getUserInfo();
 
-
+  profileNameInput.value = userName; 
+  profileDescInput.value = userJob; 
+}
 
 const imagePopup = new PopupWithImage(selectors.imagePopup);
 imagePopup.setEventListeners();
@@ -91,8 +91,8 @@ const userInfo = new UserInfo(selectors);
 // corektur 
 const profileForm = new PopupWithForm(selectors.profilePopup, (data) => {
   userInfo.setUserInfo({
-    userName: data.name,
-    userJob: data.description
+    userName: data.profile,
+    userJob: data.desc
   });
   profileForm.close();
 

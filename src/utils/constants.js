@@ -1,4 +1,7 @@
 const profile = document.querySelector(".profile");
+const profileNameInput = profileForm.querySelector(".popup__input_type_name")
+const profileDescInput = profileForm.querySelector(".popup__input_type_description")
+
 
 export const headerName = document.querySelector(".profile__name");
 export const headerDescription = document.querySelector(".profile__description");
@@ -93,8 +96,10 @@ export const selectors = {
   userJobSelector: ".profile__description",
 };
 
+
 export {
- 
+  profileNameInput,
+  profileDescInput,
   profile,
   addCardButton,
   cardAddForm,
