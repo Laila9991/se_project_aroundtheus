@@ -2,7 +2,7 @@ import "../pages/index.css";
 import {UserInfo} from "../components/UserInfo.js";
 import { FormValidator } from "../components/FormValidator.js";
 import Card from "../components/Card.js";
-import {Section} from "../components/section.js";
+import {Section} from "../components/Section.js";
 
 import { PopupWithImage } from "../components/PopupWithImage.js";
 import { PopupWithForm } from "../components/PopupWithForm.js";
@@ -91,8 +91,8 @@ const userInfo = new UserInfo(selectors);
 // corektur 
 const profileForm = new PopupWithForm(selectors.profilePopup, (data) => {
   userInfo.setUserInfo({
-    userName: data.profile,
-    userJob: data.desc
+    userName: data.name,
+    userJob: data.descripton 
   });
   profileForm.close();
 
