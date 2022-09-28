@@ -1,4 +1,4 @@
-import { escapeKeyCode } from "../utils/constants.js";
+import { escapeKeyCode } from "../utils/Constants.js";
 
 export default class Popup {
   constructor(popupSelector) {
