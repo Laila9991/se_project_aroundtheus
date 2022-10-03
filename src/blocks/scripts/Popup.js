@@ -20,16 +20,14 @@ export default class Popup {
     if (evt.keyCode === escapeKeyCode) {
       this.close();
     }
-  };
+  }
   _closePopupOnRemoteClick(evt) {
     if (evt.target === this._popup) {
       this.close();
-    }
+    };
   }
   setEventListeners() {
     this._closeButton.addEventListener("click", () => this.close());
-    this._popup.addEventListener("mousedown", (evt) =>
-      this._closePopupOnRemoteClick(evt)
-    );
+    this._popup.addEventListener("mousedown", (evt) => this._closePopupOnRemoteClick(evt));
   }
 }
