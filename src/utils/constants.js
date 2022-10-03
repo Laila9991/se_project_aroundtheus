@@ -98,8 +98,15 @@ export const selectors = {
   userJobSelector: ".profile__description",
 };
 
+const promiseInformation = {
+  baseUrl: "https://around.nomoreparties.co/v1/group-42/cards",
+  headers: {
+    authorization: "c56e30dc-2883-4270-a59e-b2f7bae969c6",  
+}
+}
 
 export {
+  promiseInformation,
   profileNameInput,
   profileDescInput,
   profile,
