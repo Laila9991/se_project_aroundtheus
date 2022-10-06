@@ -5,6 +5,7 @@ const profile = document.querySelector(".profile");
 export const headerName = document.querySelector(".profile__name");
 export const headerDescription = document.querySelector(".profile__description");
 
+export const editProfilePicButton = document.querySelector(".button__edit-alt");
 export const editBtn = document.querySelector(".profile__button-edit");
 export const profileEditPopup = document.querySelector("#edit-popup");
 export const profileEditCloseButtton = profileEditPopup.querySelector(".popup__close");

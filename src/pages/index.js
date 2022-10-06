@@ -6,6 +6,8 @@ import { Section } from "../components/Section.js";
 
 import { PopupWithImage } from "../components/PopupWithImage.js";
 import { PopupWithForm } from "../components/PopupWithForm.js";
+import { Api } from "../components/Api.js";
+
 import {
   initialCards,
   editBtn,
@@ -17,12 +19,25 @@ import {
   addCardButton,
 } from "../utils/Constants.js";
 
+const api= new Api({
+  baseUrl: "https://around.nomoreparties.co/v1/group-12", 
+    headers: {
+      authorization: "a62acfc5-af94-4242-902c-c2cf40c0593c"
+    }
+})
+
 const createCard = (cardObject) => {
   const card = new Card(
     {
       data: cardObject,
       handleCardPopup: (imgData) => {
         imagePopup.open(imgData);
+      },
+      handleLike: (id) => {
+        api.addLike(id);
+      },
+      handleDeleteClick: (id) => {
+        api.removelike(id);
       },
     },
     selectors.cardTemplate
@@ -40,9 +55,28 @@ function fillProfileForm() {
 const imagePopup = new PopupWithImage(selectors.imagePopup);
 imagePopup.setEventListeners();
 
-const cardSection = new Section(
-  {
-    items: initialCards,
+function userData() {
+  setTimeout(() => {
+    api.getUserData().then((res) => {
+      userInfo.setUserInfo({
+        userName: res.name,
+        userJob: res.about,
+      });
+      changeProfileImage(res.avatar);
+    });
+  }, 1000);
+}
+
+userData();
+
+
+
+
+api.getInitialCards().then((cardsArray) =>{
+
+  setTimeout(() => {const cardSection = new Section(
+    {
+    items: cardsArray,
     renderer: (data) => {
       const cardEl = createCard(data);
       cardSection.addItem(cardEl);
@@ -50,13 +84,15 @@ const cardSection = new Section(
   },
   ".cards"
 );
-
 cardSection.renderItems();
+});
+cardSection.renderItems()}, 1500)
+
 
 const addForm = new PopupWithForm("#add-popup", (data) => {
-  const newCard = { name: data.title, link: data.link };
-  const newCardEl = createCard(newCard);
-  cardSection.addNewItem(newCardEl);
+  const updateCard = { name: data.title, link: data.link };
+
+ setTimeout(() => {api.addCard(updateCard)}, 1000);
   addForm.close();
 });
 
@@ -76,12 +112,12 @@ const userInfo = new UserInfo(selectors);
 
 // corektur
 const profileForm = new PopupWithForm(selectors.profilePopup, (data) => {
-  userInfo.setUserInfo({
-    userName: data.name,
-    userJob: data.description,
-  });
+  const updateUser = {name: data.name, about: data.description};
+  api.submitUserEdit(updateUser);
+  updateUserData();
   profileForm.close();
-});
+  });
+
 
 profileForm.setEventListeners();
 

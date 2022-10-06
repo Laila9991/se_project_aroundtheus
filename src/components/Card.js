@@ -1,10 +1,15 @@
 export class Card {
-  constructor({ data, handleCardPopup }, cardSelector) {
-    this._data = data;
+  constructor({ data, handleCardPopup, handleDeleteClick, handleLike,}, cardSelector) {
     this._title = data.name;
     this._link = data.link;
+    this._likes= data.likes;
+    this._id = data._id;
+    this._isLiked = false;
+
     this._cardSelector = cardSelector;
     this._handleCardPopup = handleCardPopup;
+    this._handleDeleteClick = handleDeleteClick;
+    this._handleLike = handleLike;
   }
 
   _getTemplate = () => {
@@ -36,12 +41,20 @@ export class Card {
 
   _handleLikeIcon = () => {
     this._cardLikeButton.classList.toggle("card__button-like_filled");
+    this._isLiked = !this._isLiked;
+    if (this._isLiked) {
+      this._handleLike(this._id);
+    } else {
+      this._handleDeleteClick(this._id);
+    }
   };
+
+  
 
   _handleTrashButton() {
     this._element.remove();
     this._element = null;
-  }
+  };
 
 
   _setEventListeners() {
@@ -50,7 +63,7 @@ export class Card {
     );
 
     this._cardImageButton.addEventListener("click", () =>
-      this._handleCardPopup(this._data)
+      this._handleCardPopup({name: this._title, link: this._link })
     );
 
     this._cardLikeButton.addEventListener("click", () =>

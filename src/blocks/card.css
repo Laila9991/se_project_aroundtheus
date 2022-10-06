@@ -88,6 +88,15 @@
 }
 
 
+.button__edit-alt{
+  background-image: url(../images/edit-icon.svg);
+  margin: 0;
+  min-width: 30px;
+  min-height: 30px;
+  
+
+}
+
 .card__button-like_filled {
   background-image: url(../images/heart-icon-fill.svg);
 }
