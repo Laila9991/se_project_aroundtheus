@@ -9,6 +9,7 @@ import { PopupWithForm } from "../components/PopupWithForm.js";
 import { Api } from "../components/Api.js";
 
 import {
+  profile,
   initialCards,
   editBtn,
   cardAddButton,
@@ -25,6 +26,9 @@ const api= new Api({
       authorization: "a62acfc5-af94-4242-902c-c2cf40c0593c"
     }
 })
+
+const userInfo = new UserInfo(selectors);
+
 
 const createCard = (cardObject) => {
   const card = new Card(
@@ -56,15 +60,15 @@ const imagePopup = new PopupWithImage(selectors.imagePopup);
 imagePopup.setEventListeners();
 
 function userData() {
-  setTimeout(() => {
+
     api.getUserData().then((res) => {
       userInfo.setUserInfo({
         userName: res.name,
         userJob: res.about,
+        userAvatar: res.avatar
       });
-      changeProfileImage(res.avatar);
     });
-  }, 1000);
+
 }
 
 userData();
@@ -73,8 +77,7 @@ userData();
 
 
 api.getInitialCards().then((cardsArray) =>{
-
-  setTimeout(() => {const cardSection = new Section(
+ const cardSection = new Section(
     {
     items: cardsArray,
     renderer: (data) => {
@@ -86,7 +89,8 @@ api.getInitialCards().then((cardsArray) =>{
 );
 cardSection.renderItems();
 });
-cardSection.renderItems()}, 1500)
+
+
 
 
 const addForm = new PopupWithForm("#add-popup", (data) => {
@@ -108,7 +112,6 @@ console.log(addCardButton);
 const addFormValidator = new FormValidator(config, selectors.cardForm);
 addFormValidator.enableValidation();
 
-const userInfo = new UserInfo(selectors);
 
 // corektur
 const profileForm = new PopupWithForm(selectors.profilePopup, (data) => {
@@ -128,3 +131,22 @@ editBtn.addEventListener("click", () => {
 
 const editFormValidator = new FormValidator(config, selectors.profileForm);
 editFormValidator.enableValidation();
+
+
+const deletePopup = new PopupWithForm(selectors.deletePopup, (data) => {
+  api.deleteCard(data.cardId);
+  deletePopup.close();
+});
+
+deletePopup.setEventListeners();
+
+const profilePicForm = new PopupWithForm(selectors.profilePicPopup, (data) => {
+  api.updateProfilePicture(data.profilepic);
+  profilePicForm.close();
+});
+
+profilePicForm.setEventListeners();
+
+editProfilePicButton.addEventListener("click", () => {
+  profilePicForm.open();
+});

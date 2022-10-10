@@ -4,25 +4,30 @@ export class Api {
         this.headers = headers;
     }
 
+    _handleServerResponse(res) {
+        if (res.ok) {
+            return res.json();
+        }
+        return Promise.reject(`Error ${res.status}`);
+    }
+    
     getUserData() {
-         return fetch(`${this.url}users/me`, {
+         return fetch(`${this.url}/users/me`, {
             headers: this.headers
         })
-            
-        .then(res => res.ok ? res.json() : Promise.reject(`Error: ${res.status}`))
-        .catch(err => console.log(err))
-    
+        .then(this._handleServerResponse)  
+       
     }
     getInitialCards() {
         return fetch(`${this.url}/cards`, {
           headers: this.headers
         })
-        .then(res => res.ok ? res.json() : Promise.reject(`Error: ${res.status}`))
-        .catch(err => console.log(err))
+        .then(this._handleServerResponse)  
+
     }
 
     submitUserEdit(data) {
-      return fetch(`${this.url}users/me`, {
+      return fetch(`${this.url}/users/me`, {
           method: "PATCH",
           headers: this.headers,
           body: JSON.stringify({
@@ -30,13 +35,13 @@ export class Api {
               about: data.about
           })
       })
-      .then(res => res.ok ? res.json() : Promise.reject(`Error: ${res.status}`))
-      .catch(err => console.log(err))
+      .then(this._handleServerResponse)  
+
   }
 
 
   addCard(data) {
-    return fetch(`${this.url}cards`, {
+    return fetch(`${this.url}/cards`, {
         method: "POST",
         headers: this.headers,
         body: JSON.stringify({
@@ -44,22 +49,44 @@ export class Api {
             link: data.link
         })
     })
+
+    .then(this._handleServerResponse)  
+
 }
 
 addLike(id) {
-  return fetch(`${this.url}cards/likes/${id}`, {
+  return fetch(`${this.url}/cards/likes/${id}`, {
       method: "PUT",
       headers: this.headers
   })
+
+  .then(this._handleServerResponse)  
+
 }
 
 removelike(id) {
-  return fetch(`${this.url}cards/likes/${id}`, {
+  return fetch(`${this.url}/cards/likes/${id}`, {
       method: "DELETE",
       headers: this.headers
   })
+  .then(this._handleServerResponse)
+}
+
+
+updateProfilePicture(url) {
+    return fetch(`${this.url}/users/me/avatar`, {
+        method: "PATCH",
+        headers: this.headers,
+        body: JSON.stringify({
+            avatar: url
+        })
+    })
+    .then(this._handleServerResponse)
 }
 }
+
+
+
 
 
 

@@ -29,8 +29,14 @@
           alt="Jacues Cousteau image"
           class="profile__avatar"
         />
-
-        <button type="button" class="button button__edit-alt"></button>
+        <button
+        type="button"
+        class="profile__button-avatar"
+ 
+      ></button>
+    </div>
+        
+    
         
       </div>
         <div class="profile__info-description">
@@ -97,7 +103,7 @@
               placeholder="URL"
               name="profilepic"
               type="url"
-              id="profile-pic"
+              id="profile-pic-input"
               minlength="2"
               maxlength="200"
               required
@@ -167,6 +173,7 @@
         <div class="popup__body popup__body-delete">
           <form class="popup delete-popup" name="deletPopup" novalidate>
             <h4 class="popup__header">Are You Sure?</h4>
+            <input class="popup__input popup__input-hidden" name="cardId" type="text">
             <button class="popup__button" type="submit">yes</button>
 
           </form>
@@ -197,6 +204,7 @@
           <div class="card__description">
             <h2 class="card__text"></h2>
             <button class="card__button-like" type="button"></button>
+            <p class="card__like-count"></p>
           </div>
         </li>
       </template>

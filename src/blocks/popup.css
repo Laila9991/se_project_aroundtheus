@@ -106,6 +106,10 @@
   border-bottom: 1px solid rgba(84, 84, 84, 0.2);
 }
 
+.popup__input-hidden{
+  display: none;
+}
+
 .popup__input::placeholder {
   color: #333;
 }
@@ -199,4 +203,16 @@
     padding-bottom: 25px;
     margin-top: 62px;
   }
+
+
+
+.popup__body-deletey{
+  height: 181px;
+
+}
+.popup__body-profile-pic{
+  height: 272px;
+
+}
+
 }

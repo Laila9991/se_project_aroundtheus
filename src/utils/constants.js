@@ -1,7 +1,8 @@
 const profile = document.querySelector(".profile");
+const deletePopup = document.querySelector(".delete-popup");
+const deleteInput = deletePopup.querySelector(".popup__input-hidden");
 
-
-
+ const ProfilePicButton = document.querySelector(".profile__button-avatar");
 export const headerName = document.querySelector(".profile__name");
 export const headerDescription = document.querySelector(".profile__description");
 
@@ -46,36 +47,6 @@ const addCardButton = document.querySelector(".profile__add-button");
 //card List
 const cardList = document.querySelector(".cards");
 
-export const initialCards = [
-  {
-    name: "Yosemite Valley ",
-    link: "https://code.s3.yandex.net/web-code/yosemite.jpg ",
-  },
-
-  {
-    name: "Lake Louise ",
-    link: "https://code.s3.yandex.net/web-code/lake-louise.jpg  ",
-  },
-  {
-    name: "Bald Mountains ",
-    link: "https://code.s3.yandex.net/web-code/bald-mountains.jpg ",
-  },
-  {
-    name: "Latemar ",
-    link: "https://code.s3.yandex.net/web-code/latemar.jpg ",
-  },
-
-  {
-    name: "Vanoise National Park ",
-    link: " https://code.s3.yandex.net/web-code/vanoise.jpg ",
-  },
-
-  {
-    name: "Lago di Braies ",
-    link: "https://code.s3.yandex.net/web-code/lago.jpg  ",
-  },
-];
-
 
 export const config = {
   formSelector: ".popup__form",
@@ -94,10 +65,15 @@ export const selectors = {
   cardForm: "#add-card-form",
   profilePopup: "#edit-popup",
   profileForm: "#edit-profile-form",
+  profilePicPopup: ".profile-pic",  
+  deletePopup: ".delete-popup",
   cardTemplate: "#card-template",
   userNameSelector: ".profile__name",
   userJobSelector: ".profile__description",
+  userAvatarSelector:".profile__avatar"
+
 };
+
 
 const promiseInformation = {
   baseUrl: "https://around.nomoreparties.co/v1/group-42/cards",
@@ -107,6 +83,7 @@ const promiseInformation = {
 }
 
 export {
+  ProfilePicButton,
   promiseInformation,
   profileNameInput,
   profileDescInput,
@@ -124,4 +101,5 @@ export {
   popupImage,
   profileForm,
   subtitleBtn,
+  deleteInput
 };

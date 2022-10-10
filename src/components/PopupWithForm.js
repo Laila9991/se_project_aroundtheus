@@ -28,6 +28,15 @@ export class PopupWithForm extends popup {
   }
 
 
+  renderLoading(isLoading, loadingText='Saving...') {
+    if (isLoading) {
+      this._saveButtonText.textContent = loadingText;
+    } else {
+      this._saveButtonText.textContent = this.__saveButtonText;
+    }
+  }
+
+
   setEventListeners() {
     super.setEventListeners();
     this._form.addEventListener("submit", (event) => {
