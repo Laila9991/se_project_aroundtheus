@@ -18,6 +18,7 @@ import {
   config,
   selectors,
   addCardButton,
+editProfilePicButton
 } from "../utils/Constants.js";
 
 const api= new Api({
@@ -38,12 +39,19 @@ const createCard = (cardObject) => {
         imagePopup.open(imgData);
       },
       handleLike: (id) => {
-        api.addLike(id);
+        api.addLike(id)
+        .then((res) => card.updateLikes(res))
+          .catch((err) => console.log(err));
       },
       handleDeleteClick: (id) => {
-        api.removelike(id);
-      },
+        api.removelike(id)
+        .then((res) => card.updateLikes(res))
+        .catch((err) => console.log(err));
     },
+    handleTrashPopup: (id) => {
+      fillDeletePopup(id);
+    },
+  },
     selectors.cardTemplate
   );
   return card.generateCard();
@@ -67,6 +75,8 @@ function userData() {
         userJob: res.about,
         userAvatar: res.avatar
       });
+      userInfo.setUserImage({ userImage: res.avatar });
+    profile.setAttribute("id", res._id);
     });
 
 }
@@ -75,9 +85,10 @@ userData();
 
 
 
-
-api.getInitialCards().then((cardsArray) =>{
- const cardSection = new Section(
+Promise.all([api.getInitialCards(), api.getUserData()])
+.then(([cardsArray, userData]) => {
+  updateUserData(userData);
+  cardSection = new Section(
     {
     items: cardsArray,
     renderer: (data) => {
@@ -88,16 +99,26 @@ api.getInitialCards().then((cardsArray) =>{
   ".cards"
 );
 cardSection.renderItems();
-});
+})
+.catch((err) => console.log(err));
 
 
 
 
 const addForm = new PopupWithForm("#add-popup", (data) => {
   const updateCard = { name: data.title, link: data.link };
+  api 
+  addCard(updateCard)
+  .then((res) => {
 
- setTimeout(() => {api.addCard(updateCard)}, 1000);
-  addForm.close();
+    const cardElement = createCard(res);
+    cardSection.addNewItem(cardElement);
+    addForm.close();
+  })
+  .catch((err) => console.log(err))
+  .finally(() => {
+    addForm.renderLoading(false);
+  });
 });
 
 addForm.setEventListeners();
@@ -116,10 +137,19 @@ addFormValidator.enableValidation();
 // corektur
 const profileForm = new PopupWithForm(selectors.profilePopup, (data) => {
   const updateUser = {name: data.name, about: data.description};
-  api.submitUserEdit(updateUser);
-  updateUserData();
-  profileForm.close();
+  api.submitUserEdit(updateUser)
+  //updateUserData();
+  //profileForm.close();
+  .then((res) => {
+    userInfo.setUserInfo({ userName: res.name, userJob: res.about });
+    profileForm.close();
+  })
+  .catch((err) => console.log(err))
+  .finally(() => {
+    profileForm.renderLoading(false);
   });
+});
+
 
 
 profileForm.setEventListeners();
@@ -134,15 +164,30 @@ editFormValidator.enableValidation();
 
 
 const deletePopup = new PopupWithForm(selectors.deletePopup, (data) => {
-  api.deleteCard(data.cardId);
-  deletePopup.close();
+  api
+    .deleteCard(data.cardId)
+    .then(() => {
+      card.remove();
+      deletePopup.close();
+    })
+    .catch((err) => console.log(err))
+    .finally(() => {
+      deletePopup.renderLoading(false);
+    });
 });
 
 deletePopup.setEventListeners();
 
 const profilePicForm = new PopupWithForm(selectors.profilePicPopup, (data) => {
-  api.updateProfilePicture(data.profilepic);
-  profilePicForm.close();
+  api.updateProfilePicture(data.profilepic)
+  .then((res) => {
+    userInfo.setUserImage({ userImage: res.avatar });
+    profilePicForm.close();
+  })
+  .catch((err) => console.log(err))
+  .finally(() => {
+    profilePicForm.renderLoading(false);
+  });
 });
 
 profilePicForm.setEventListeners();

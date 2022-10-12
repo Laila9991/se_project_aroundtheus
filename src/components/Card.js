@@ -6,7 +6,7 @@ export class Card {
     this._id = data._id;
     this._isLiked = false;
 
-    if (this.likes.includes(this._userId)) {
+    if (this._likes.includes(this._userId)) {
       this._isLiked = true;
     } else {
       this._isLiked = false;
@@ -64,8 +64,8 @@ export class Card {
   };
 
   _checkLikeIcon = () => {
-    for (let i = 0; i < this.likes.length; i++) {
-      if (this.likes[i]._id === this._userId) {
+    for (let i = 0; i < this._likes.length; i++) {
+      if (this._likes[i]._id === this._userId) {
         this._isLiked = true;
         this._cardLikeButton.classList.toggle("card__button-like_filled");
         return;
@@ -73,7 +73,7 @@ export class Card {
     }
   }
 
-  checkCardOwnerId = (id) => {
+  _checkCardOwnerId = (id) => {
     if (id !== this._ownerid) {
       this._cardTrashButton.remove();
       this._cardTrashButton = null;

@@ -17,7 +17,7 @@ export class UserInfo {
     this._nameElement.textContent = userName;
     this._jobElement.textContent = userJob;
     if(userAvatar){
-    this.userAvatarElement.src = userAvatar;
+    this._userAvatarElement.src = userAvatar;
   }
 }
 }

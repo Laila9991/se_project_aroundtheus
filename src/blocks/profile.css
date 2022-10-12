@@ -100,21 +100,15 @@
 
   border-width: thin;
   border-color: #000000;
-  top: 20;
+  top: 0;
   bottom: 20;
   left: 0;
   right: 0;
   
- 
-
-
-
-
-
 
 }
 .profile__button-avatar:hover{
-opacity: 0.8;
+opacity: 0.6;
 cursor: pointer;
 
 
