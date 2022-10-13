@@ -7,7 +7,7 @@ export class PopupWithForm extends Popup {
     this._form = this._popup.querySelector(".popup__form");
     this._inputEls = Array.from(this._form.querySelectorAll(".popup__input"));
     this._saveButton = this._form.querySelector(".popup__button");
-    this._saveButtonText = this._saveButton.value;
+    this._saveButtonText = this._saveButton.textContent;
 
 
 
@@ -32,7 +32,7 @@ export class PopupWithForm extends Popup {
     if (isLoading) {
       this._saveButtonText.textContent = loadingText;
     } else {
-      this._saveButtonText.textContent = this.__saveButtonText;
+      this._saveButtonText.textContent = this._saveButtonText;
     }
   }
 

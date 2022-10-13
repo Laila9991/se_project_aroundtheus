@@ -40,7 +40,7 @@ export class Api {
   }
 
 
-  addCard(data) {
+  addNewCard(data) {
     return fetch(`${this.url}/cards`, {
         method: "POST",
         headers: this.headers,
@@ -70,6 +70,14 @@ removelike(id) {
       headers: this.headers
   })
   .then(this._handleServerResponse)
+}
+
+deleteCard(id) {
+    return fetch(`${this.url}/cards/${id}`, {
+        method: "DELETE",
+        headers: this.headers
+    })
+    .then(this._handleServerResponse)
 }
 
 

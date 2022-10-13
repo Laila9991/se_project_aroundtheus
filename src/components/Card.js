@@ -1,5 +1,5 @@
 export class Card {
-  constructor({ data, handleCardPopup, handleDeleteClick, handleLike,}, cardSelector) {
+  constructor({ data, handleCardPopup, handleDeleteClick, handleLike, handleTrashPopup}, cardSelector) {
     this._title = data.name;
     this._link = data.link;
     this._likes= data.likes;
@@ -17,6 +17,8 @@ export class Card {
     this._handleDeleteClick = handleDeleteClick;
     this._handleLike = handleLike;
     this._ownerid = data.owner._id;
+    this._handleTrashPopup = handleTrashPopup;
+
   }
 
   _getTemplate = () => {
@@ -46,8 +48,13 @@ export class Card {
     return this._element;
   };
 
-  _handleLikeIcon = () => {
+  updateLikes(res) {
+    this.likes = res.likes;
+    this._cardLikesCount.textContent = `${this.likes.length}`;
     this._cardLikeButton.classList.toggle("card__button-like_filled");
+  }
+  
+  _handleLikeIcon = () => {
     this._isLiked = !this._isLiked;
     if (this._isLiked) {
       this._handleLike(this._id);
@@ -56,12 +63,11 @@ export class Card {
     }
   };
 
-  
-
   _handleTrashButton() {
     this._element.remove();
-    this._element = null;
-  };
+    this._element = null;};
+
+  
 
   _checkLikeIcon = () => {
     for (let i = 0; i < this._likes.length; i++) {
@@ -73,8 +79,8 @@ export class Card {
     }
   }
 
-  _checkCardOwnerId = (id) => {
-    if (id !== this._ownerid) {
+  _checkCardOwnerId = () => {
+    if (this._userId !== this._ownerid) {
       this._cardTrashButton.remove();
       this._cardTrashButton = null;
     } else {
