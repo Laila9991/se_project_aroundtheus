@@ -64,7 +64,7 @@ export const selectors = {
   imagePopup: "#content__popup",
   cardForm: "#add-card-form",
   profilePopup: "#edit-popup",
-  profileForm: "#edit-profile-form",
+  profileForm: "#edit-popup",
   profilePicPopup: "#profile-pic",  
   profilePicForm:"#edit-profile-form",
   deletePopup: ".delete-popup",
