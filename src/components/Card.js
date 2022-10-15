@@ -5,6 +5,7 @@ export class Card {
     this._likes= data.likes;
     this._id = data._id;
     this._isLiked = false;
+    this._userId= data.currentUserId;
 
     if (this._likes.includes(this._userId)) {
       this._isLiked = true;
@@ -64,8 +65,11 @@ export class Card {
   };
 
   _handleTrashButton() {
-    this._element.remove();
-    this._element = null;};
+   // this._element.remove();
+    //this._element = null;
+    this.handleTrashPopup(this._id);
+  
+  };
 
   
 

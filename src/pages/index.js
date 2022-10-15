@@ -25,9 +25,14 @@ deleteInput
 const api= new Api({
   baseUrl: "https://around.nomoreparties.co/v1/group-12", 
     headers: {
-      authorization: "a62acfc5-af94-4242-902c-c2cf40c0593c"
+      authorization: "a62acfc5-af94-4242-902c-c2cf40c0593c",
+
+      'Content-Type': "application/JSON"
+
     }
 })
+
+let currentUserId= null;
 
 const userInfo = new UserInfo(selectors);
 
@@ -35,7 +40,7 @@ const userInfo = new UserInfo(selectors);
 const createCard = (cardObject) => {
   const card = new Card(
     {
-      data: cardObject,
+      data: {...cardObject, currentUserId},
       handleCardPopup: (imgData) => {
         imagePopup.open(imgData);
       },
@@ -71,6 +76,7 @@ imagePopup.setEventListeners();
 function userData() {
 
     api.getUserData().then((res) => {
+      currentUserId = res._id;
       userInfo.setUserInfo({
         userName: res.name,
         userJob: res.about,
@@ -112,8 +118,7 @@ cardSection.renderItems();
 
 const addForm = new PopupWithForm("#add-popup", (data) => {
   const newCard = { name: data.title, link: data.link };
-  api 
-  addNewCard(newCard)
+  api.addNewCard(newCard)
   
 
     .then(res => {
