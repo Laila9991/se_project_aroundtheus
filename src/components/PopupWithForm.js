@@ -7,7 +7,6 @@ export class PopupWithForm extends Popup {
     this._form = this._popup.querySelector(".popup__form");
     this._inputEls = Array.from(this._form.querySelectorAll(".popup__input"));
     this._saveButton = this._form.querySelector(".popup__button");
-    this._saveButtonText = this._saveButton.textContent;
 
 
 
@@ -30,9 +29,9 @@ export class PopupWithForm extends Popup {
 
   renderLoading(isLoading, loadingText='Saving...') {
     if (isLoading) {
-      this._saveButtonText.textContent = loadingText;
+      this._saveButton.textContent = loadingText;
     } else {
-      this._saveButtonText.textContent = this._saveButtonText;
+     this._saveButton.textContent = 'Save'
     }
   }
 

@@ -33,6 +33,7 @@ const api= new Api({
 })
 
 let currentUserId= null;
+let cardSection= null;
 
 const userInfo = new UserInfo(selectors);
 
@@ -99,7 +100,7 @@ Promise.all([api.getInitialCards(), api.getUserData()])
     userAvatar: userData.avatar
 
   })
-  let cardSection = new Section(
+ cardSection = new Section(
     {
     items: cardsArray,
     renderer: (data) => {
@@ -117,6 +118,7 @@ cardSection.renderItems();
 
 
 const addForm = new PopupWithForm("#add-popup", (data) => {
+  addForm.renderLoading(true);
   const newCard = { name: data.title, link: data.link };
   api.addNewCard(newCard)
   
@@ -180,7 +182,8 @@ editFormValidator.enableValidation();
 const profilePicForm = new PopupWithForm(selectors.profilePicPopup, (data) => {
   api.updateProfilePicture(data.profilepic)
   .then((res) => {
-    userInfo.setUserImage({ userImage: res.avatar });
+    userInfo.setUserInfo({userAvatar: res.avatar, userName: userInfo.getUserInfo().userName, userJob: userInfo.getUserInfo().userJob  
+       });
     profilePicForm.close();
   })
   .catch((err) => console.log(err))
