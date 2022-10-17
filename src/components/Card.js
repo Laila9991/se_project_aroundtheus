@@ -65,9 +65,9 @@ export class Card {
   };
 
   _handleTrashButton() {
-   // this._element.remove();
-    //this._element = null;
-    this.handleTrashPopup(this._id);
+  this._element.remove();
+   this._element = null;
+  
   
   };
 
@@ -93,10 +93,9 @@ export class Card {
   }
 
   _setEventListeners() {
-    this._cardTrashButton.addEventListener("click", () =>
-      this._handleTrashButton()
-    );
-
+    this._cardTrashButton.addEventListener("click", () => {
+      this._handleTrashPopup(this._id);
+    });
     this._cardImageButton.addEventListener("click", () =>
       this._handleCardPopup({name: this._title, link: this._link })
     );

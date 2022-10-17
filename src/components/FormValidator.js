@@ -54,7 +54,7 @@ export class FormValidator {
 
     this._inputEls.forEach((inputElement) => {
       this._hideInputError(inputElement);
-    });
+    })
   }
 
   _setEventListeners() {
