@@ -21,6 +21,7 @@ import {
 editProfilePicButton, 
 deleteInput
 } from "../utils/Constants.js";
+import is from "core-js/library/fn/object/is";
 
 const api= new Api({
   baseUrl: "https://around.nomoreparties.co/v1/group-12", 
@@ -42,22 +43,19 @@ const createCard = (cardObject) => {
   const card = new Card(
     {
       data: {...cardObject, currentUserId},
-      handleCardPopup: (imgData) => {
+      handleCardcClick: (imgData) => {
         imagePopup.open(imgData);
       },
-      handleLike: (id) => {
-        api.addLike(id)
+      handleLikeClick: (id, isLiked) => {
+        api.changeLikeCardStatus(id, isLiked)
         .then((res) => card.updateLikes(res))
-          .catch((err) => console.log(err));
+        .catch((err) => console.log(err))
       },
       handleDeleteClick: (id) => {
-        api.removelike(id)
-        .then((res) => card.updateLikes(res))
-        .catch((err) => console.log(err));
+        fillDeletePopup(id);
+
     },
-    handleTrashPopup: (id) => {
-      fillDeletePopup(id);
-    },
+  
   },
     selectors.cardTemplate, profile.id
   );

@@ -1,7 +1,7 @@
 .cards {
   display: flex;
   flex-wrap: wrap;
-  row-gap: 20px;
+  row-gap: 40px;
   column-gap: 17px;
   margin: 0 auto;
   max-width: 880px;

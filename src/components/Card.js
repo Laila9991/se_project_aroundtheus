@@ -1,5 +1,5 @@
 export class Card {
-  constructor({ data, handleCardPopup, handleDeleteClick, handleLike, handleTrashPopup}, cardSelector) {
+  constructor({ data, handleCardClick, handleDeleteClick, handleLikeClick}, cardSelector) {
     this._title = data.name;
     this._link = data.link;
     this._likes= data.likes;
@@ -14,11 +14,10 @@ export class Card {
     }
 
     this._cardSelector = cardSelector;
-    this._handleCardPopup = handleCardPopup;
+    this._handleCardClick = handleCardClick;
     this._handleDeleteClick = handleDeleteClick;
-    this._handleLike = handleLike;
+    this._handleLikeClick = handleLikeClick;
     this._ownerid = data.owner._id;
-    this._handleTrashPopup = handleTrashPopup;
 
   }
 
@@ -55,21 +54,19 @@ export class Card {
     this._cardLikeButton.classList.toggle("card__button-like_filled");
   }
   
-  _handleLikeIcon = () => {
-    this._isLiked = !this._isLiked;
-    if (this._isLiked) {
-      this._handleLike(this._id);
-    } else {
-      this._handleDeleteClick(this._id);
-    }
-  };
+ //* _handleLikeClickIcon = () => {
+    //this._isLiked = !this._isLiked;
+   // if (this._isLiked) {
+   //   this._handleLikeClick(this._id);
+   // } else {
+   //   this._handleDeleteClick(this._id);
+    ///}
+  //};
 
-  _handleTrashButton() {
-  this._element.remove();
-   this._element = null;
-  
-  
-  };
+  _handleTrashButton= () => {
+    this._element.remove();
+    this._element = null;
+  }
 
   
 
@@ -94,14 +91,14 @@ export class Card {
 
   _setEventListeners() {
     this._cardTrashButton.addEventListener("click", () => {
-      this._handleTrashPopup(this._id);
+      this.handleDeleteClick(this._id);
     });
     this._cardImageButton.addEventListener("click", () =>
-      this._handleCardPopup({name: this._title, link: this._link })
+      this._handleCardClick({name: this._title, link: this._link })
     );
 
     this._cardLikeButton.addEventListener("click", () =>
-      this._handleLikeIcon()
+      this._handleLikeClick(this._id, this._isLiked )
     );
 
     this._checkCardOwnerId();

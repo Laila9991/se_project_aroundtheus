@@ -61,7 +61,7 @@
   border: none;
   min-width: 18px;
   min-height: 19.3px;
-  position:relative;
+  position:absolute;
   top: 38px;
   left: 240px;
   background-image: url(../images/icon-trash.svg);
@@ -86,6 +86,7 @@
   padding: 0;
   background-color: rgba(0,0,0,0);
   border-style: none;
+  
 }
 
 

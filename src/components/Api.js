@@ -54,23 +54,17 @@ export class Api {
 
 }
 
-addLike(id) {
-  return fetch(`${this.url}/cards/likes/${id}`, {
-      method: "PUT",
-      headers: this.headers
-  })
+changeLikeCardStatus(id, isLiked )
 
-  .then(this._handleServerResponse)  
-
-}
-
-removelike(id) {
-  return fetch(`${this.url}/cards/likes/${id}`, {
-      method: "DELETE",
-      headers: this.headers
-  })
-  .then(this._handleServerResponse)
-}
+{
+    return fetch(`${this.url}/cards/likes/${id}`, {
+        method: isLiked ? "DELETE" : "PUT",
+        headers: this.headers
+    })
+  
+    .then(this._handleServerResponse)  
+  
+  }
 
 deleteCard(id) {
     return fetch(`${this.url}/cards/${id}`, {
