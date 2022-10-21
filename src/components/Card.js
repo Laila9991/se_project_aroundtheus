@@ -91,7 +91,7 @@ export class Card {
 
   _setEventListeners() {
     this._cardTrashButton.addEventListener("click", () => {
-      this.handleDeleteClick(this._id);
+      this._handleDeleteClick(this._id);
     });
     this._cardImageButton.addEventListener("click", () =>
       this._handleCardClick({name: this._title, link: this._link })

@@ -1,5 +1,5 @@
 const profile = document.querySelector(".profile");
-const deletePopup = document.querySelector(".delete-popup");
+const deletePopup = document.querySelector("#delete-popup");
 const deleteInput = deletePopup.querySelector(".popup__input-hidden");
 
  const ProfilePicButton = document.querySelector(".profile__button-avatar");
@@ -67,7 +67,7 @@ export const selectors = {
   profileForm: "#edit-profile-form",
   profilePicPopup: "#profile-pic",  
   profilePicForm:"#profile-pic-form",
-  deletePopup: ".delete-popup",
+  deletePopup: "#delete-popup",
   cardTemplate: "#card-template",
   userNameSelector: ".profile__name",
   userJobSelector: ".profile__description",
