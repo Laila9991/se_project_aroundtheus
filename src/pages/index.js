@@ -60,13 +60,13 @@ const createCard = (cardObject) => {
           api
             .deleteCard(id)
             .then(() => {
-              //card.remove();
+              card.remove();
               api.getInitialCards();
               deletePopup.close();
             })
             .catch((err) => console.log(err))
             .finally(() => {
-             // deletePopup.renderLoading(false);
+             deletePopup.renderLoading(false);
             });
         });
       },
