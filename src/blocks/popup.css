@@ -1,112 +1,181 @@
 .popup {
   display: flex;
+
   justify-content: center;
+
   align-items: center;
+
   position: fixed;
+
   top: 0;
+
   bottom: 0;
+
   left: 0;
+
   right: 0;
+
   background-color: #00000080;
+
   z-index: 100;
+
   visibility: none;
+
   opacity: 0;
+
   pointer-events: none;
+
   transition: visibility 0s 0.5s, opacity 0.5s linear;
 }
 
 .popup_opened {
   visibility: visible;
+
   opacity: 1;
+
   pointer-events: all;
+
   transition: visibility 0s, opacity 0.5s linear;
 }
 
 .popup__body {
   position: relative;
+
   margin: 0 auto;
+
   border-radius: 10px;
+
   background-color: #fefefe;
 }
+
 .popup__close {
   background-image: url("../images/close-icon.svg ");
+
   position: absolute;
+
   outline: inherit;
+
   padding: 0;
+
   top: -40px;
+
   right: -40px;
+
   border: none;
+
   height: 40px;
+
   width: 40px;
+
   background-position: center;
+
   background-repeat: no-repeat;
+
   background-size: contain;
+
   background-color: rgba(0, 0, 0, 0);
+
   cursor: pointer;
 }
 
 .popup__button {
   color: white;
+
   background-color: black;
+
   font-size: 18px;
+
   line-height: 22px;
+
   border-radius: 3px;
+
   border: 0;
+
   padding: 0;
+
   height: 50.15px;
+
   width: 358px;
+
   margin-top: 48px;
+
 }
 
 .popup__button:hover {
   opacity: 0.8;
+
   cursor: pointer;
 }
 
 .popup__button_disabled:hover {
   opacity: 1;
+
   cursor: default;
 }
 
 .popup__description {
   font-family: "Inter", Arial, sans-serif;
+
   font-style: normal;
+
   font-size: 24px;
+
   line-height: 29px;
+
   color: black;
+
   width: 358px;
+
   margin-left: 36px;
+
   margin-right: 36px;
+
   margin-top: 28px;
+
   margin-bottom: 0;
 }
 
 .popup__form {
   display: flex;
+
   width: 358px;
 
   margin: 0 auto;
+
   flex-direction: column;
+
   padding-bottom: 36px;
+
   margin-top: 40px;
 }
 
 .popup__input {
   font-family: "Inter", Arial, sans-serif;
+
   font-style: normal;
+
   height: 40.52px;
+
   font-weight: 400;
+
   font-size: 14px;
+
   line-height: 17px;
+
   line-height: 1.2;
+
   width: 100%;
+
   border: none;
+
   padding: 0;
+
   margin: 0;
+
   border-bottom: 1px solid rgba(84, 84, 84, 0.2);
 }
 
-.popup__input-hidden{
+.popup__input-hidden {
   display: none;
 }
 
@@ -117,102 +186,148 @@
 .popup__input:nth-of-type(1) {
   margin-top: 14px;
 }
+
 .popup__content_type_preview {
   max-height: 75vh;
+
   max-width: 75vw;
+
   width: auto;
+
   height: auto;
+
   background: transparent;
+
   display: flex;
 }
 
 .popup__image {
   max-width: 75vw;
+
   max-height: 75vh;
+
   object-fit: cover;
 }
 
 .popup__input_type_error {
   border-bottom: 1px solid #ff0000;
-  
 }
 
 .form__input-error {
   position: relative;
+
   bottom: 5px;
+
   margin: 0;
+
   padding: 0;
+
   font-size: 12px;
+
   line-height: 15px;
 
   opacity: 0;
 }
+
 .popup__error_visible {
-  color:red;
+  color: red;
 }
 
 .popup__button_disabled {
   color: rgba(0, 0, 0, 0.2);
+
   background-color: rgba(0, 0, 0, 0);
+
   border: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 .popup__header {
-  font-family: "Inter";
-  font-size: 12px;
-  line-height: 15px;
-  font-weight: 400;
+  font-family: Inter, Arial,sans-serif;
+  font-size: 22px;
+  font-style: normal;
+
+  line-height: 29px;
+
+  font-weight: 900;
+
   margin: 10px 0 0 0;
-  color: #fff;
+
+  color:black;
 }
+
 
 .popup__body-alt {
   background-color: rgba(0, 0, 0, 0);
+
   display: flex;
+
   flex-direction: column;
+
   justify-content: center;
+
   align-items: flex-start;
+
   position: absolute;
+
   border-radius: 10px;
 }
+.popup__body-delete {
+  border-radius: 10px;
+  padding: 0px 36px 30px;
+  box-sizing: border-box;
+  max-width: 430px;
+  width: 100%;
+
+}
+
+.popup__body-profile-pic {
+  height: 272px;
+
+}
+
 
 @media screen and (max-width: 800px) {
   .popup__close {
     top: -40px;
+
     right: 11px;
+
     width: 26px;
+
     height: 26px;
   }
 
   .popup__description {
     width: 238px;
+
     margin-left: 22px;
+
     margin-right: 22px;
+
     margin-top: 28px;
+
     font-size: 18px;
+
     line-height: 22px;
   }
+
   .popup__button {
     width: 238px;
+
     height: 46px;
+
     margin-top: 45px;
+
     font-size: 14px;
   }
+
   .popup__form {
     width: 238px;
+
     padding-bottom: 25px;
+
     margin-top: 62px;
   }
 
-
-
-.popup__body-deletey{
-  height: 181px;
-
-}
-.popup__body-profile-pic{
-  height: 272px;
-
-}
 
 }

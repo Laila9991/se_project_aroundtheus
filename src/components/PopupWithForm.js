@@ -6,7 +6,7 @@ export class PopupWithForm extends Popup {
     this._handleSubmit = handleFormSubmit;
     this._form = this._popup.querySelector(".popup__form");
     this._inputEls = Array.from(this._form.querySelectorAll(".popup__input"));
-    this._saveButton = this._form.querySelector(".popup__button");
+  this._saveButton = this._form.querySelector(".popup__button");
 
 
 
@@ -26,8 +26,7 @@ export class PopupWithForm extends Popup {
     super.close();
   }
 
-
-  renderLoading(isLoading, loadingText='Saving...') {
+  renderLoading(isLoading, loadingText='Loading...') {
     if (isLoading) {
       this._saveButton.textContent = loadingText;
     } else {
@@ -47,3 +46,5 @@ export class PopupWithForm extends Popup {
     });
   }
 }
+
+

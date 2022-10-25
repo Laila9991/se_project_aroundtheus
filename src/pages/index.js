@@ -57,16 +57,16 @@ const createCard = (cardObject) => {
       handleDeleteClick: (id) => {
         deletePopup.open();
         deletePopup.setSubmitAction(() => {
+        deletePopup.renderLoading(true);
           api
             .deleteCard(id)
             .then(() => {
               card.remove();
-              api.getInitialCards();
               deletePopup.close();
             })
             .catch((err) => console.log(err))
             .finally(() => {
-             deletePopup.renderLoading(false);
+              deletePopup.renderLoading(false);
             });
         });
       },
@@ -208,4 +208,3 @@ editProfilePicButton.addEventListener("click", () => {
   profilePicForm.open();
 });
 profilePicForm.setEventListeners();
-

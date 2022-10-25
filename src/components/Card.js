@@ -63,9 +63,9 @@ export class Card {
     ///}
   //};
 
-  _handleTrashButton= () => {
+  remove() {
     this._element.remove();
-    this._element = null;
+  
   }
 
   

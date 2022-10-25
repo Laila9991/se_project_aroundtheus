@@ -13,4 +13,15 @@ export class PopupWithFormSubmit extends Popup {
       this._handleSubmitCallback();
     });
   }
+
+  renderLoading(isLoading, loadingText='Loading...') {
+    const form = this._popup.querySelector(".popup__form");
+  
+    const saveButton = form.querySelector(".popup__button");
+      if (isLoading) {
+        saveButton.textContent = loadingText;
+      } else {
+       saveButton.textContent = 'Save'
+      }
+    }
 }
