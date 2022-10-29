@@ -2,7 +2,7 @@ const profile = document.querySelector(".profile");
 const deletePopup = document.querySelector("#delete-popup");
 const deleteInput = deletePopup.querySelector(".popup__input-hidden");
 
- const ProfilePicButton = document.querySelector(".profile__button-avatar");
+ const profilePicButton = document.querySelector(".profile__button-avatar");
 export const headerName = document.querySelector(".profile__name");
 export const headerDescription = document.querySelector(".profile__description");
 
@@ -84,12 +84,13 @@ const promiseInformation = {
 }
 
 export {
-  ProfilePicButton,
+  profilePicButton,
   promiseInformation,
   profileNameInput,
   profileDescInput,
   profile,
   addCardButton,
+  
   cardAddForm,
   cardAddPopup,
   cardDescriptionInput,

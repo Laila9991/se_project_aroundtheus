@@ -87,23 +87,12 @@ function fillProfileForm() {
 const imagePopup = new PopupWithImage(selectors.imagePopup);
 imagePopup.setEventListeners();
 
-function userData() {
-  api.getUserData().then((res) => {
-    currentUserId = res._id;
-    userInfo.setUserInfo({
-      userName: res.name,
-      userJob: res.about,
-      userAvatar: res.avatar,
-    });
-    //userInfo.setUserImage({ userImage: res.avatar });
-    profile.setAttribute("id", res._id);
-  });
-}
-
-userData();
 
 Promise.all([api.getInitialCards(), api.getUserData()])
   .then(([cardsArray, userData]) => {
+    currentUserId = userData._id;
+    profile.setAttribute("id", userData._id);
+
     userInfo.setUserInfo({
       userName: userData.name,
       userJob: userData.about,

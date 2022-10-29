@@ -14,6 +14,8 @@ export class PopupWithFormSubmit extends Popup {
     });
   }
 
+
+
   renderLoading(isLoading, loadingText='Loading...') {
     const form = this._popup.querySelector(".popup__form");
   

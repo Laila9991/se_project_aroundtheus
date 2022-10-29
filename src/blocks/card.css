@@ -52,6 +52,17 @@
   background-color: white;
 }
 
+.card__likes-wrapper {
+  display: flex;
+  flex-direction: column;
+  max-height: 35px;
+  margin: 22px 22px 24px 0;
+}
+.card__like-count{
+  font-size: 13px;
+  margin: 3px auto 0 auto;
+
+}
 .card__button-like:hover {
   opacity: 0.5;
 }
